@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>行业前端解决方案</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/codemirror.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/content.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/theme/neat.css" />
+  <link rel="stylesheet" href="css/theme/elegant.css" />
+  <link rel="stylesheet" href="css/theme/erlang-dark.css" />
+  <link rel="stylesheet" href="css/theme/night.css" />
+  <link rel="stylesheet" href="css/theme/monokai.css" />
+  <link rel="stylesheet" href="css/theme/cobalt.css" />
+  <link rel="stylesheet" href="css/theme/eclipse.css" />
+  <link rel="stylesheet" href="css/theme/rubyblue.css" />
+  <link rel="stylesheet" href="css/theme/lesser-dark.css" />
+  <link rel="stylesheet" href="css/theme/xq-dark.css" />
+  <link rel="stylesheet" href="css/theme/xq-light.css" />
+  <link rel="stylesheet" href="css/theme/ambiance.css" />
+  <link rel="stylesheet" href="css/theme/blackboard.css" />
+  <link rel="stylesheet" href="css/theme/vibrant-ink.css" />
+  <link rel="stylesheet" href="css/theme/solarized.css" />
+  <link rel="stylesheet" href="css/theme/twilight.css" />
+  <link rel="stylesheet" href="css/theme/midnight.css" />
+</head>
+<body>
+  <div id="doc">
+  	<header id="header">
+  		<div class="header-inner">
+  			<div class="wrap">
+	  			<h1 class="logo">
+	  				<a href="#" title="UI">UI</a>
+	  			</h1>
+	  			<nav>
+	  				<ul class="nav-list unstyled clearfix">
+		  				<li>
+		  					<a href="#" title="首页">首页</a>
+		  				</li>
+		  				<li class="current">
+		  					<a href="#" title="基本框架">基本框架</a>
+		  				</li>
+		  				<li>
+		  					<a href="#" title="代码片段">代码片段</a>
+		  				</li>
+		  				<li>
+		  					<a href="#" title="组件">组件</a>
+		  				</li>
+		  				<li>
+		  					<a href="#" title="模块">模块</a>
+		  				</li>
+		  				<li>
+		  					<a href="#" title="编码规范">编码规范</a>
+		  				</li>
+              <li>
+                <a href="#" title="前端学习">前端学习</a>
+              </li>
+		  			</ul>
+	  			</nav>
+	  			<nav>
+	  				<ul class="nav-list fd-right unstyled clearfix">
+		  				<li class="dropdown theme">
+                <a class="dropdown-toggle" href="#" title="首页">高亮样式<b class="caret"></b></a>
+                <ul class="dropdown-menu unstyled">
+                  <li><a href="#">default</a></li>
+                  <li><a href="#">ambiance</a></li>
+                  <li><a href="#">blackboard</a></li>
+                  <li><a href="#">cobalt</a></li>
+                  <li><a href="#">eclipse</a></li>
+                  <li><a href="#">elegant</a></li>
+                  <li><a href="#">erlang-dark</a></li>
+                  <li><a href="#">lesser-dark</a></li>
+                  <li><a href="#">midnight</a></li>
+                  <li><a href="#">monokai</a></li>
+                  <li><a href="#">neat</a></li>
+                  <li><a href="#">night</a></li>
+                  <li><a href="#">rubyblue</a></li>
+                  <li><a href="#">solarized dark</a></li>
+                  <li><a href="#">solarized light</a></li>
+                  <li><a href="#">twilight</a></li>
+                  <li><a href="#">vibrant-ink</a></li>
+                  <li><a href="#">xq-dark</a></li>
+                  <li><a href="#">xq-light</a></li>
+                </ul>
+              </li>
+		  			</ul>
+	  			</nav>
+	  		</div>
+  		</div>
+  	</header>
+  	<div id="content">
+  		<div class="content-inner">
+  			<section id="tuwen">
+          <header id="tuwen-intro">
+            <h2>图文结合组件</h2>
+          </header>   
+          <article id="tuwen-stxw-vertical" class="code-mirror">
+            <h3 class="hide">上图下文-垂直居中图片</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical {display:table;width:150px;height:150px;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover {border-color:#ff7300;}
+.cell-img-vertical a {display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img {vertical-align:bottom;}
+.unit-stxw-1 {width:152px;color:#888;}
+.unit-stxw-1 a:link,
+.unit-stxw-1 a:visited {color:#888;}
+.unit-stxw-1 a:hover {color:#ff7300;}
+.unit-stxw-1 dd {height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-stxw-1 dd em {font-weight:bold;}
+.unit-stxw-1 .subject a:link,
+.unit-stxw-1 .subject a:visited {color:#444;}
+.unit-stxw-1 .subject a:hover {color:#ff7300;}
+.unit-stxw-1 .price em {color:#c00;}</style>
+              <div class="html-demo"><div class="stxw">
+  <dl class="unit-stxw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/150-100.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+          <article id="tuwen-stxw-normal" class="code-mirror">
+            <h3 class="hide">上图下文-普通图片</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-base img{width:150px;height:150px;border:1px solid #dcdcdc;vertical-align:bottom;}
+.cell-img-base a:hover img{border-color:#ff7300;}
+.unit-stxw-1 {width:152px;color:#888;}
+.unit-stxw-1 a:link,
+.unit-stxw-1 a:visited {color:#888;}
+.unit-stxw-1 a:hover {color:#ff7300;}
+.unit-stxw-1 dd {height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-stxw-1 dd em {font-weight:bold;}
+.unit-stxw-1 .subject a:link,
+.unit-stxw-1 .subject a:visited {color:#444;}
+.unit-stxw-1 .subject a:hover {color:#ff7300;}
+.unit-stxw-1 .price em {color:#c00;}</style>
+              <div class="html-demo"><div class="stxw">
+<dl class="unit-stxw-1">
+  <dt class="cell-img-base">
+    <a href="#" title="1688">
+      <img src="http://wd.alibaba-inc.com/i/150-150.png" alt="1688" />
+    </a>
+  </dt>
+  <dd class="subject"><a href="#" title="我是标题">我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题</a></dd>
+  <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+  <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+  <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+  <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+  <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+  <dd class="company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+</dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+        </section>
+        <section id="tuwen1">
+          <header id="tuwen1-intro">
+            <h2>图文结合组件</h2>
+          </header>   
+          <article id="tuwen1-ztyw-vertical-float" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片(环绕法实现)</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+          <article id="tuwen1-ztyw-vertical" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+        </section>
+        <section id="tuwen2">
+          <header id="tuwen2-intro">
+            <h2>图文结合组件</h2>
+          </header>   
+          <article id="tuwen2-ztyw-vertical-float" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片(环绕法实现)</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+          <article id="tuwen2-ztyw-vertical" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+        </section>
+        <section id="tuwen3">
+          <header id="tuwen3-intro">
+            <h2>图文结合组件</h2>
+          </header>   
+          <article id="tuwen3-ztyw-vertical-float" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片(环绕法实现)</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+          <article id="tuwen3-ztyw-vertical" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+        </section>
+        <section id="tuwen4">
+          <header id="tuwen4-intro">
+            <h2>图文结合组件</h2>
+          </header>   
+          <article id="tuwen4-ztyw-vertical-float" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片(环绕法实现)</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+          <article id="tuwen4-ztyw-vertical" class="code-mirror">
+            <h3 class="hide">左图右文-垂直居中图片</h3>
+            <div class="block-intro">
+              <style type="text/css">.cell-img-vertical{display:table;border:1px solid #dcdcdc;margin:0 auto;overflow:hidden;text-align:center;background-color:#fff;font-size:0;*layout-grid-line:100%;}
+.cell-img-vertical:hover{border-color:#ff7300;}
+.cell-img-vertical a{display:table-cell;height:100%;vertical-align:middle;*writing-mode:tb-rl;}
+.cell-img-vertical img{vertical-align:bottom;}
+.unit-ztyw-1{margin:0 auto;color:#888;overflow:hidden;zoom:1;}
+.unit-ztyw-1:after{clear:both;content:"\0020";display:block;height:0;}
+.unit-ztyw-1 a:link,
+.unit-ztyw-1 a:visited{color:#888;}
+.unit-ztyw-1 a:hover{color:#ff7300;}
+.unit-ztyw-1 dt{float:left;font-size:0;line-height:0;_margin-right:-3px;padding-right:8px;}
+.unit-ztyw-1 dt .cell-img-vertical{float:left;}
+.unit-ztyw-1 dd{height:18px;word-wrap:break-word;word-break:break-all;overflow:hidden;}
+.unit-ztyw-1 dd em{font-weight:bold;}
+.unit-ztyw-1 .subject a:link,
+.unit-ztyw-1 .subject a:visited{color:#444;}
+.unit-ztyw-1 .subject a:hover{color:#ff7300;}
+.unit-ztyw-1 .price em{color:#c00;}
+.unit-ztyw-1 .clear{float:left;display:inline;clear:both;}
+.ztyw .unit-ztyw-1{width:200px;}
+.ztyw .unit-ztyw-1 dd{height:18px;margin-top:2px;}
+.ztyw .unit-ztyw-1 .subject{height:21px;margin-top:0;font-size:14px;}
+.ztyw .unit-ztyw-1 .brief{height:auto;}
+.ztyw .unit-ztyw-1 .company{margin-top:6px;}
+.ztyw .unit-ztyw-1 .cell-img-vertical{width:100px;height:100px;}
+</style>
+              <div class="html-demo"><div class="ztyw">
+  <dl class="unit-ztyw-1">
+    <dt class="cell-img-vertical">
+      <a href="#" title="1688">
+        <img src="http://wd.alibaba-inc.com/i/80-80.png" alt="1688" />
+      </a>
+    </dt>
+    <dd class="subject"><a href="#" title="我是标题">我是标题我是标题</a></dd>
+    <dd class="price"><span class="label">售价：</span><span class="value"><em><span class="fd-cny">&yen;</span>20.0</em>/个</span></dd>
+    <dd class="o-price"><span class="label">原价：</span><span class="value"><del><em><span class="fd-cny">&yen;</span>20.0</em>/个</del></span></dd>
+    <dd class="sale"><span class="label">销量：</span><span class="value"><em>140770.0</em>根</span></dd>
+    <dd class="major"><span class="label">主营：</span><span class="value">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；我是非常长的；</span></dd>
+    <dd class="brief"><span class="label">简介：</span><span class="value">asdasdasdasdasdasdasdasdasd我是非常长的不要截断</span></dd>
+    <dd class="clear company"><a href="#" title="我是次链接">我是次链接我是次链接我是次链接我是次链接</a></dd>
+    <dd class="clear">我是单独文字</dd>
+  </dl>
+</div></div>
+            </div>
+            <div class="block-main">
+              <ul class="tab-trigger unstyled">
+                <li class="f-tab-t">HTML</li>
+                <li class="f-tab-t">CSS</li>
+              </ul>
+              <div class="f-tab-b" data-mode="html"></div>
+              <div class="f-tab-b" data-mode="css"></div>
+            </div>
+          </article>
+        </section>
+  		</div>
+  		<!-- 侧边栏 -->
+  		<aside id="sidebar" class="sidebar">
+  			<a class="toggle" href="#" titile="展开">展开</a>
+  			<div class="sidebar-inner">
+  				<ul class="unstyled">
+  					
+  				</ul>
+  			</div>
+  		</aside>
+  	</div>
+  </div>
+  <script type="text/javascript" src="http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js"></script>
+  <script type="text/javascript" src="js/codemirror.js"></script>
+  <script type="text/javascript" src="js/javascript.js"></script>
+  <script type="text/javascript" src="js/content.js"></script>
+</body>
+</html>

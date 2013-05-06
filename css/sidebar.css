@@ -1,0 +1,55 @@
+/*
+ * @Author      changbin.wangcb
+ * @Date        2013.04.15
+ * @Description nav
+ */
+
+#sidebar {
+    position: fixed;
+    top: 52px;
+    right: 0;
+    width: 240px;
+    height: 100%;
+    background-color: #252b30;
+    border-top: 3px solid #000;
+}
+#sidebar .toggle {
+    display: none;
+}
+.sidebar-inner > ul > li {
+    border-bottom: 1px solid #474c55;
+}
+.sidebar-inner a:hover,
+.sidebar-inner li,
+.sidebar-inner a {
+    transition-duration: 0.3s;
+    transition-property: background-color, color;
+}
+.sidebar-inner > ul > .current {
+    background-color: #333B42;
+}
+.sidebar-inner > ul li a {
+    display: block;
+    line-height: 1;
+    font-size: 12px;
+    padding: 5px 20px 8px;
+    color: #fff;
+    font-family: "\5FAE\8F6F\96C5\9ED1",
+                "\9ED1\4F53",
+                "\6587\6CC9\9A7F\6B63\9ED1\4F53",
+                "\534E\6587\7EC6\9ED1";
+    font-weight: 400;
+}
+.sidebar-inner > ul h2 a {
+    padding: 7px 20px 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.sidebar-inner > ul li a.current,
+.sidebar-inner > ul li a:hover {
+    background-color: #fff;
+    color: #080808!important;
+}
+.sidebar-inner > ul li a:hover {
+    text-decoration: none;
+}
