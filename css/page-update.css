@@ -1,0 +1,16 @@
+/*
+ * @Author      changbin.wangcb
+ * @Date        2013.05.06
+ * @Description 页面维护更新
+ */
+
+#page-update {
+    display: table;
+    width: 100%;
+    height: 200px;
+}
+#page-update .wrap {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}

@@ -76,6 +76,10 @@
     		var self = this,
     			container = self.container.find('>ul');
 
+            if( !$('#content div.content-inner>section').length ){
+                self.sidebar.hide();
+                return;
+            }
     		$('#content div.content-inner>section').each(function(i, el){
     			var _this = $(el),
     				parent = _this.find('>header'),
