@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>行业前端解决方案</title>
+  <meta name="description" content="" />
+</head>
+<body>
+  <div id="doc">
+  	<header id="header">
+  		
+  	</header>
+  	<div id="content">
+  		<div class="content-inner">
+		</div>
+  	</div>
+  </div>
+  <script type="text/javascript" src="http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js"></script>
+
+  <script type="text/javascript">
+  		(function($) {
+  			$.getJSON('/snippets/get_posts?callback=?',function(data){
+  				console.log(data)
+  			})
+  		})(jQuery)
+  </script>
+</body>
+</html>

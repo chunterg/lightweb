@@ -1,0 +1,25 @@
+!!!5
+html
+  head
+    <!-- based on express -->
+    title #{title} --by chunterg
+    link(href='#{siteurl}css/codemirror.css', rel='stylesheet')
+  body
+    block content
+  script(src='http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js')
+  script(src='#{siteurl}js/codemirror.js')
+  script(src='#{siteurl}js/javascript.js')
+  script(src='http://xms.alibado.com/xms/common/js/codemirror/mode/css/css.js')
+  script(src='http://xms.alibado.com/xms/common/js/codemirror/mode/xml/xml.js')  
+  script(src='http://xms.alibado.com/xms/common/js/codemirror/mode/htmlmixed/htmlmixed.js')
+  script
+    jQuery('textarea.code').each(function(){
+        var _mode = jQuery(this).attr('data-type')||'text/html'
+        var editor = window.CodeMirror.fromTextArea(jQuery(this)[0], {
+         mode:_mode,
+         indentWithTabs:true,
+         indentUnit:4,
+         lineNumbers:true,
+         lineWrapping:true
+       });
+      })

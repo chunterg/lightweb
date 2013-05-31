@@ -1,0 +1,45 @@
+extends layout
+
+block content
+	style
+		body{font-family:Courier;}
+		.form-field{margin-bottom:10px;}
+		.lw-post label{
+			vertical-align:top;
+			float:left;
+		}
+		.area{
+			width:80%;
+		}
+		.area,.field{
+			margin-left:100px;
+		}
+		.area,input[type=text]{
+		font-family:Courier;
+			padding:4px;
+			border:1px solid #ccc;
+		}
+	form(action='/snippets/add_new_submit',method="post",class="lw-post")
+		div.form-field
+			Label name:
+			div.field
+				input(type="text",name="name",placeholder="片段名称") 
+		div.form-field
+			Label html:
+			div.area
+				textarea(type="text",name="html",class="code",data-type="text/html")
+		div.form-field
+			Label style:
+			div.area
+				textarea(type="text",name="style",class="code",data-type="text/css")
+		div.form-field
+			Label script:
+			div.area
+				textarea(type="text",name="script",class="code",data-type="text/javascript")
+		div.form-field
+			Label Tag:
+			div.field
+				input(type="text",name="tag",placeholder="标签名称，用逗号分隔")
+		div.form-field
+			input(type="submit",value="post")
+			input(type="submit",value="preview",disabled="disabled")
