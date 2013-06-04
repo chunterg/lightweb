@@ -994,6 +994,91 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4B000000,endCol
     </article>
 </section>
 
+<section id="btn-adjust">
+	<header id="btn-adjust-intro">
+		<h2>自适应按钮</h2>
+	</header>   
+	<article id="btn-adjust-normal" class="code-mirror">
+        <h3 class="hide">自适应按钮</h3>
+        <div class="block-intro">
+<style type="text/css">
+.btn-a1{display:inline-block;overflow:hidden;cursor:pointer;white-space:nowrap;vertical-align:bottom;}
+.btn-a1 button{display:inline-block;height:100%;border:0 none;outline:0 none;background:none;overflow:visible;cursor:pointer;vertical-align:bottom;line-height:inherit;}
+.btn-a1 button::-moz-focus-inner{border:0;padding:0;}
+.btn-a1 em{height:100%;display:inline-block;}
+.btn-a1:hover{text-decoration:none;}
+.btn-a1-disable,
+.btn-a1-disable button{cursor:default;}
+/*按钮自定义部分可修改样式*/
+.btn-a1,
+.btn-a1 em{background:url("http://img.china.alibaba.com/images/common/icon_v02/btn3.png") no-repeat;}
+.btn-a1{height:22px;font-size:12px;line-height:22px;background-position:0 0;}
+.btn-a1 em{background-color:#fff;color:#333 !important;margin-left:2px;padding:0 8px 0 6px;background-position:right 0;}
+.btn-a1:hover{background-position:0 -22px;}
+.btn-a1:hover em{background-position:right -22px;}
+.btn-a1-disable{background-position:0 -44px !important;}
+.btn-a1-disable em{background-position:right -44px !important;color:#999 !important;}
+</style>
+			<div class="html-demo">
+<a href="#" class="btn-a1">
+	<em>自适应按钮</em>
+</a>
+<a href="#" class="btn-a1 btn-a1-disable">
+	<em>自适按钮</em>
+</a>
+			</div>
+        </div>
+		<div class="block-main">
+			<ul class="tab-trigger unstyled">
+				<li class="f-tab-t">HTML</li>
+				<li class="f-tab-t">CSS</li>
+			</ul>
+			<div class="f-tab-b" data-mode="html"></div>
+			<div class="f-tab-b" data-mode="css"></div>
+		</div>
+    </article>
+    <article id="btn-adjust-button" class="code-mirror">
+        <h3 class="hide">自适应按钮-内部button</h3>
+        <div class="block-intro">
+<style type="text/css">
+.btn-a1{display:inline-block;overflow:hidden;cursor:pointer;white-space:nowrap;vertical-align:bottom;}
+.btn-a1 button{display:inline-block;height:100%;border:0 none;outline:0 none;background:none;overflow:visible;cursor:pointer;vertical-align:bottom;line-height:inherit;}
+.btn-a1 button::-moz-focus-inner{border:0;padding:0;}
+.btn-a1 em{height:100%;display:inline-block;}
+.btn-a1:hover{text-decoration:none;}
+.btn-a1-disable,
+.btn-a1-disable button{cursor:default;}
+/*按钮自定义部分可修改样式*/
+.btn-a1,
+.btn-a1 em{background:url("http://img.china.alibaba.com/images/common/icon_v02/btn3.png") no-repeat;}
+.btn-a1{height:22px;font-size:12px;line-height:22px;background-position:0 0;}
+.btn-a1 em{background-color:#fff;color:#333 !important;margin-left:2px;padding:0 8px 0 6px;background-position:right 0;}
+.btn-a1:hover{background-position:0 -22px;}
+.btn-a1:hover em{background-position:right -22px;}
+.btn-a1-disable{background-position:0 -44px !important;}
+.btn-a1-disable em{background-position:right -44px !important;color:#999 !important;}
+</style>
+			<div class="html-demo">
+<a href="#" class="btn-a1">
+	<button><em>自适应按钮</em></button>
+</a>
+<a href="#" class="btn-a1 btn-a1-disable">
+	<button><em>自适应按钮神挡杀神</em></button>
+</a>
+			</div>
+        </div>
+		<div class="block-main">
+			<ul class="tab-trigger unstyled">
+				<li class="f-tab-t">HTML</li>
+				<li class="f-tab-t">CSS</li>
+			</ul>
+			<div class="f-tab-b" data-mode="html"></div>
+			<div class="f-tab-b" data-mode="css"></div>
+		</div>
+    </article>
+</section>
+
+
 		</div>
   		<!-- 侧边栏 -->
   		<aside id="sidebar" class="sidebar">
