@@ -1,45 +1,57 @@
 extends layout
 
 block content
-	style
-		body{font-family:Courier;}
-		.form-field{margin-bottom:10px;}
-		.lw-post label{
-			vertical-align:top;
-			float:left;
-		}
-		.area{
-			width:80%;
-		}
-		.area,.field{
-			margin-left:100px;
-		}
-		.area,input[type=text]{
-		font-family:Courier;
-			padding:4px;
-			border:1px solid #ccc;
-		}
-	form(action='/snippets/add_new_submit',method="post",class="lw-post")
+	if action== "add"
+		h2 添加代码片段
+	else
+		h2 编辑代码片段
+	form(action='/snippets/do',method="post",class="lw-post")
+		input(type="hidden",name="action",value="#{action}")
+		if action== "edit"
+			input(type="hidden",name="_id",value="#{_id}")
 		div.form-field
-			Label name:
+			Label.form-field-left Name:
 			div.field
-				input(type="text",name="name",placeholder="片段名称") 
+				input(type="text",name="name",placeholder="片段名称",value=action=="edit"?name:'')
+		fieldset
+			legend Code 
+			div.form-field
+				Label.form-field-left html:
+				div.area
+					textarea(type="text",name="html",class="code",data-type="text/html") #{action=="edit"?html:''}
+			div.form-field
+				Label.form-field-left style:
+				div.area
+					textarea(type="text",name="style",class="code",data-type="text/css") #{action=="edit"?style:''}
+			div.form-field
+				Label.form-field-left script:
+				div.area
+					textarea(type="text",name="script",class="code",data-type="text/javascript") #{action=="edit"?script:''}
+		fieldset
+			legend Document 
+			div.form-field
+					Label.form-field-left Doctype:
+					if action== "add"
+						div.field
+							input(type="radio",id="t_html",name="docType",value=".html",checked="checked") 
+							Label(for="t_html") html
+							input(type="radio",id="t_md",name="docType",value=".md")
+							Label(for="t_md") md
+					else
+						Label #{docType} 
+						input(type="hidden",name="docType",value="#{docType}")
+			div.form-field
+				Label.form-field-left Content:
+				div.area
+					if action== "add"
+						textarea(type="text",name="docContent",class="code",data-type="text/html")
+					else
+						textarea(type="text",name="docContent",class="code",data-type="text/html") #{docContent}
+						
 		div.form-field
-			Label html:
-			div.area
-				textarea(type="text",name="html",class="code",data-type="text/html")
-		div.form-field
-			Label style:
-			div.area
-				textarea(type="text",name="style",class="code",data-type="text/css")
-		div.form-field
-			Label script:
-			div.area
-				textarea(type="text",name="script",class="code",data-type="text/javascript")
-		div.form-field
-			Label Tag:
+			Label.form-field-left Tags:
 			div.field
-				input(type="text",name="tag",placeholder="标签名称，用逗号分隔")
+				input(type="text",name="tag",placeholder="标签名称，用逗号分隔",value=action=="edit"?tags:'')
 		div.form-field
 			input(type="submit",value="post")
 			input(type="submit",value="preview",disabled="disabled")

@@ -3,12 +3,37 @@ html
   head
     <!-- based on express -->
     title #{title} --by chunterg
-    link(href='#{siteurl}css/codemirror.css', rel='stylesheet')
+    link(href='#{siteUrl}css/codemirror.css', rel='stylesheet')
+    style
+      body{font-family:Courier;}
+      .form-field{margin-bottom:10px;}
+      .lw-post label.form-field-left{
+        vertical-align:top;
+        float:left;
+      }
+      .lw-post fieldset{
+        margin-bottom:10px;
+      }
+      .area{
+        width:80%;
+      }
+      .area,.field{
+        margin-left:100px;
+      }
+      .area,input[type=text]{
+        font-family:Courier;
+        padding:4px;
+        border:1px solid #ccc;
+      }
+    script(src='http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js')
   body
+    //div.header public header
+      
     block content
-  script(src='http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js')
-  script(src='#{siteurl}js/codemirror.js')
-  script(src='#{siteurl}js/javascript.js')
+    //div.footer public footer
+
+  script(src='#{siteUrl}js/codemirror.js')
+  script(src='#{siteUrl}js/javascript.js')
   script(src='http://xms.alibado.com/xms/common/js/codemirror/mode/css/css.js')
   script(src='http://xms.alibado.com/xms/common/js/codemirror/mode/xml/xml.js')  
   script(src='http://xms.alibado.com/xms/common/js/codemirror/mode/htmlmixed/htmlmixed.js')

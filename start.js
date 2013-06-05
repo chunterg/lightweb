@@ -1,7 +1,7 @@
 var fs = require('fs');
-var express = require('express');
+var express = require('./node_modules/express');
 var app = express();
-var mongoose = require('mongoose');
+var mongoose = require('./node_modules/mongoose');
 mongoose.connect('mongodb://localhost/lightweb');
 //load server config
 var cfg = fs.readFileSync(__dirname + '/config.json', 'utf8');
@@ -10,6 +10,7 @@ cfg = JSON.parse(cfg);
 app.configure(function() {
 	app.set('views', __dirname + '/view');
 	app.set('view engine', 'jade');
+	app.set('view options', { pretty: true });
 	app.use(express.methodOverride());
 	app.use(express.bodyParser());
 	//load middleware plugins
@@ -24,7 +25,6 @@ app.configure(function() {
 	app.use(express.static(cfg.root,{
 		maxAge:!cfg.cache?604800:0
 	}));
-	
 });
 app.configure('development', function(){
   app.use(express.errorHandler({
@@ -33,17 +33,19 @@ app.configure('development', function(){
 	}));
 });
 
-//router
-app.get('*.html|*.htm',function(req, res) {
-	var fileContent = fs.readFileSync(cfg.root + req.originalUrl);
-    res.charset = cfg.encode;
-    res.end(fileContent);
-});
 // require('./models/snippetsModel')(mongoose);
 // Register Controllers
-['snippets'].forEach(function (controller) {
+['snippets','blog','site'].forEach(function (controller) {
     require('./controllers/' + controller + 'Controller')(app,mongoose,cfg);
 });
+
+// //router
+// app.get('*.html|*.htm',function(req, res) {
+// 	var fileContent = fs.readFileSync(cfg.root + req.originalUrl);
+//     res.charset = cfg.encode;
+//     res.end(fileContent);
+// });
+
 
 app.listen(cfg.port);
 console.log('server start');

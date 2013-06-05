@@ -1,16 +1,30 @@
- var mongoose = require('mongoose');
+var mongoose = require('../node_modules/mongoose');
 var Schema = mongoose.Schema;
 var Snippets = new Schema({
         name: String,
         style:String,
         html:String,
         script:String,
-        tags:Array
+        like:Number,
+        doc:{
+        	docType:{
+        		type:String,
+        		default:"md"
+        	},
+        	docContent:String
+        },
+        tags:Array,
+        created:{
+        	name:String,
+        	date:Date
+        },
+        revision:Array 
        })
-var Tags = new Schema({
+var snippetTags = new Schema({
         name: String,
-        count:Number
+        count:Number,
+        snippetIds:Array
        })
 
 exports.Snippets = mongoose.model('Snippets', Snippets);
-exports.Tags = mongoose.model('Tags', Tags);
+exports.Tags = mongoose.model('Tags', snippetTags);
