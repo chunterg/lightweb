@@ -5,7 +5,7 @@ block content
 		h2 添加代码片段
 	else
 		h2 编辑代码片段
-	form(action='/snippets/do',method="post",class="lw-post")
+	form(action='/snippet/do',method="post",class="lw-post")
 		input(type="hidden",name="action",value="#{action}")
 		if action== "edit"
 			input(type="hidden",name="_id",value="#{_id}")

@@ -22,29 +22,22 @@ app.configure(function() {
 	app.use(app.router);
 
 	//set static file parse
-	app.use(express.static(cfg.root,{
+	app.use(cfg.siteDirectory,express.static(cfg.root,{
 		maxAge:!cfg.cache?604800:0
 	}));
 });
-app.configure('development', function(){
-  app.use(express.errorHandler({
-		dumpExceptions: true,
-		showStack: true
-	}));
+app.configure('development', function () {
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-// require('./models/snippetsModel')(mongoose);
+app.configure('production', function() {
+    app.use(express.errorHandler());
+});
+
 // Register Controllers
 ['snippets','blog','site'].forEach(function (controller) {
     require('./controllers/' + controller + 'Controller')(app,mongoose,cfg);
 });
-
-// //router
-// app.get('*.html|*.htm',function(req, res) {
-// 	var fileContent = fs.readFileSync(cfg.root + req.originalUrl);
-//     res.charset = cfg.encode;
-//     res.end(fileContent);
-// });
 
 
 app.listen(cfg.port);

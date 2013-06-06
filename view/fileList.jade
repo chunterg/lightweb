@@ -1,0 +1,32 @@
+extends layout
+
+block content
+	style
+		li{list-style:none;}
+		.folder{float:left;}
+		.folder img{vertical-align:middle;}
+		.f_edit{margin-left:10px;text-decoration:none}
+		.files{padding-left:20px;}
+		.f_list ul li{height:25px;line-height:25px;}
+		.f_new{text-decoration:none;font-size:14px;margin-left:20px;}
+	div.f_list
+		if type=="blogList"
+			h1 文档管理
+				a.f_new(href="#{_root}add",target="_blank") 新建文档
+			ul.files
+				-for (var key in body)
+					li 
+						if body[key]['isDir'] == true
+							span.folder
+								img(src="http://#{_root}/assets/images/folder-16.png")
+						a.f_name(href=body[key]['src'],title=body[key]['name'],target="_blank") #{body[key]['name']}
+						if !body[key]['isDir']
+							a.f_edit(href=body[key]['src']+"?edit=true",target="_blank") [编辑]
+		else if type=="snippetList"
+			h1 代码片段管理
+				a.f_new(href="#{_root}add",target="_blank") 新建代码片段
+			ul.files
+				-for (var key in body)
+					li 
+						a.f_name(href=_root+'getSnippet?_id='+body[key]['_id'],title=body[key]['name'],target="_blank") #{body[key]['name']}
+						a.f_edit(href=body[key]['_id']+"/edit/",target="_blank") [编辑]

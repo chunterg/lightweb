@@ -1,7 +1,7 @@
 var SnippetsModel = require('../models/snippetsModel');
 var snippetsController = function (app,mongoose,cfg) {
     //增加新片断
-    app.get('/snippets/add', function(req, res, next) {
+    app.get(cfg.siteDirectory+'snippet/add', function(req, res, next) {
         res.render('snippets',{
             title:"Add new snippets",
             siteUrl:cfg.siteUrl,
@@ -10,7 +10,7 @@ var snippetsController = function (app,mongoose,cfg) {
     });
 
     //编辑片断
-    app.get('/snippets/:id/edit', function(req, res, next) {
+    app.get(cfg.siteDirectory+'snippet/:id/edit', function(req, res, next) {
         SnippetsModel.Snippets.findOne({ _id: req.params.id}, function (err, snippet) {
             if(err) throw err
 
@@ -32,8 +32,9 @@ var snippetsController = function (app,mongoose,cfg) {
     });
 
     //片断处理函数
-    app.all('/snippets/do', function(req, res, next) {
+    app.all(cfg.siteDirectory+'snippet/do', function(req, res, next) {
         var tags = req.body.tag+'';
+        var _d = new Date();
         var dataReq = {
                     name:req.body.name,
                     html:req.body.html,
@@ -46,6 +47,10 @@ var snippetsController = function (app,mongoose,cfg) {
                     tags:req.body.tag?req.body.tag.split(','):[]
                 }
         if(req.body.action=='add'){
+            dataReq.created = {
+                        name:'chunterg',
+                        date:_d.getTime()
+                    }
             var snippetsModel = new SnippetsModel.Snippets(dataReq)
         }
         if(tags){
@@ -75,21 +80,34 @@ var snippetsController = function (app,mongoose,cfg) {
         if(req.body.action=='add'){
             snippetsModel.save( function( err, user ){
                     console.log('create snippet success')
-                    res.redirect( '/snippets/get_posts' );
+                    res.redirect( cfg.siteDirectory+'snippet/' );
                   });
         }else{
             SnippetsModel.Snippets.findOneAndUpdate({_id:req.body._id},dataReq,function(err,data){
                     if(err) throw err;
                     console.log('edit snippet success')
-                    res.redirect( '/snippets/getSnippet' );
+                    res.redirect( cfg.siteDirectory+'snippet/getSnippet?_id='+req.body._id );
                })
         }   
     });
 
-    app.get('/snippets/getSnippet', function(req, res, next) {
+    app.get(cfg.siteDirectory+'snippet/getSnippet', function(req, res, next) {
        var query = req.query;
        SnippetsModel.Snippets.find(query,function(err,snippet){
             res.jsonp(snippet)
+       })
+    });
+
+    app.get(cfg.siteDirectory+'snippet/', function(req, res, next) {
+       SnippetsModel.Snippets.find(function(err,snippet){
+            res.render('fileList',{
+                type:"snippetList",
+                _root:req.originalUrl,
+                title: 'Snippet list',
+                siteUrl: cfg.siteUrl,
+                blogRoot: cfg.blogRoot,
+                body: snippet
+            });
        })
     });
 }

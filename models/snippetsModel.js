@@ -18,7 +18,7 @@ var Snippets = new Schema({
         	name:String,
         	date:Date
         },
-        revision:Array 
+        update:Array 
        })
 var snippetTags = new Schema({
         name: String,

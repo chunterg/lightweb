@@ -1,0 +1,51 @@
+extends layout
+
+block content
+	if action== "add"
+		h2 创建文档文件
+	else
+		h2 编辑文档文件
+	form(action='/blog/do',method="post",class="lw-post")
+		input(type="hidden",name="action",value="#{action}")
+		if action== "add"||(path&&path.indexOf(blogRoot)>-1)
+			div.form-field
+				Label.form-field-left title:
+				div.field 
+					input(type="text",name="title",placeholder="文章名称",value=action=="edit"?blogTitle:'')
+		if action== "add"
+			div.form-field
+				Label.form-field-left type:
+				div.field
+					input(type="radio",id="t_html",name="type",value=".html",checked="checked") 
+					Label(for="t_html") html
+					input(type="radio",id="t_md",name="type",value=".md")
+					Label(for="t_md") md
+
+		div.form-field
+			Label.form-field-left path:
+			div.field 
+				if action== "add"
+					label #{blogRoot}
+					input(type="text",name="fileName",placeholder="文件名称")
+					span
+				else
+					span #{path}
+					input(type="hidden",name="path",value="#{path}")
+		div.form-field
+			Label.form-field-left content:
+			div.area
+				if action== "add"
+					textarea(type="text",name="content",class="code",data-type="text/html")
+				else
+					textarea(type="text",name="content",class="code",data-type="text/html") #{content}
+						
+
+		div.form-field
+			input(type="submit",value="post")
+			input(type="submit",value="preview",disabled="disabled")
+		if action== "add"
+			script
+				jQuery('input[name=fileName]').next().text(jQuery('input[name=type]:checked').val())
+				jQuery('input[name=type]').on('click',function(){
+					jQuery('input[name=fileName]').next().text(jQuery('input[name=type]:checked').val())
+				})

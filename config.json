@@ -1,6 +1,9 @@
 {
 	"port":88,
-	"root":"D:/static/lightweb/public",
+	"root":"D:/static/lightweb/public/",
+	//"siteDirectory":"/lightweb/",
+	"siteDirectory":"/",
+	//"blogRoot":"/lightweb/blog/",
 	"blogRoot":"/blog/",
 	"siteUrl":"http:\/\/wd.alibaba-inc.com/lightweb/",
 	"cache":true,
