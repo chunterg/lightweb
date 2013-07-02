@@ -13,6 +13,7 @@ var Snippets = new Schema({
         	},
         	docContent:String
         },
+        viewType:String,
         tags:Array,
         created:{
         	name:String,
@@ -20,6 +21,7 @@ var Snippets = new Schema({
         },
         update:Array 
        })
+
 var snippetTags = new Schema({
         name: String,
         count:Number,

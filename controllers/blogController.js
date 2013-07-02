@@ -59,7 +59,12 @@ var blogController = function(app, mongoose, cfg) {
 
     //文件处理
     app.all(cfg.siteDirectory+'blog/do', function(req, res, next) {
+        if(!(req.body.action)){
+            res.end('Wrong argument');
+            return;
+        }
         var filePath = '';
+        var isAjax = req.body._ajax&&req.body._ajax=="true"?true:false;
         if(req.body.action=='add'){
             //文件路径，包含后缀
             filePath = cfg.blogRoot+req.body.fileName + req.body.type;
@@ -78,16 +83,24 @@ var blogController = function(app, mongoose, cfg) {
                 if (e) throw e;
                 fs.closeSync(fd);
                 if(req.body.action=='add'){
-                    blogModel.save(function(err, user) {
+                    blogModel.save(function(err, data) {
                         if(err) throw err;
-                        console.log('create blog success')
-                        res.redirect(cfg.blogRoot + req.body.fileName + req.body.type);
+                        console.log('create blog success');
+                        if(isAjax){
+                            res.json(data);
+                        }else{
+                            res.redirect(cfg.blogRoot + req.body.fileName + req.body.type);
+                        }
                     });
                 }else if(filePath.indexOf(cfg.blogRoot)>-1){
                      BlogModel.Blog.findOneAndUpdate({path:filePath},{title:req.body.title},{upsert:true},function(err,data){
                         if(err) throw err;
                         console.log('edit blog success')
-                        res.redirect(filePath);
+                        if(isAjax){
+                            res.json(data);
+                        }else{
+                            res.redirect(filePath);
+                        }
                      })
                     
                 }else{

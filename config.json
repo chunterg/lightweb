@@ -10,5 +10,10 @@
 	"encode":"gbk",
 	"middlewares":[
 		"./lib/compile"
-		]
+		],
+	"settings":{
+		"snippet":{
+			"viewType":["单列","双列"]
+		}
+	}
 }

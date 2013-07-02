@@ -5,7 +5,8 @@ var snippetsController = function (app,mongoose,cfg) {
         res.render('snippets',{
             title:"Add new snippets",
             siteUrl:cfg.siteUrl,
-            action:"add"
+            action:"add",
+            set:cfg.settings.snippet
         });
     });
 
@@ -25,7 +26,9 @@ var snippetsController = function (app,mongoose,cfg) {
                 html:snippet.html,
                 style:snippet.style,
                 script:snippet.script,
-                tags:snippet.tags
+                tags:snippet.tags,
+                set:cfg.settings.snippet,
+                viewType:snippet.viewType||''
             });
         });
 
@@ -33,19 +36,25 @@ var snippetsController = function (app,mongoose,cfg) {
 
     //片断处理函数
     app.all(cfg.siteDirectory+'snippet/do', function(req, res, next) {
+        if(!(req.body.action&&req.body.name)){
+            res.end('Wrong argument');
+            return;
+        }
         var tags = req.body.tag+'';
         var _d = new Date();
         var dataReq = {
-                    name:req.body.name,
-                    html:req.body.html,
-                    style:req.body.style,
-                    script:req.body.script,
+                    name:req.body.name||'',
+                    html:req.body.html||'',
+                    style:req.body.style||'',
+                    script:req.body.script||'',
                     doc:{
-                        docType:req.body.docType,
-                        docContent:req.body.docContent
+                        docType:req.body.docType||'md',
+                        docContent:req.body.docContent||''
                     },
+                    viewType:req.body.viewType||'',
                     tags:req.body.tag?req.body.tag.split(','):[]
                 }
+        var isAjax = req.body._ajax&&req.body._ajax=="true"?true:false;
         if(req.body.action=='add'){
             dataReq.created = {
                         name:'chunterg',
@@ -53,7 +62,7 @@ var snippetsController = function (app,mongoose,cfg) {
                     }
             var snippetsModel = new SnippetsModel.Snippets(dataReq)
         }
-        if(tags){
+        if(tags.length>0){
             var tagModel = SnippetsModel.Tags;
             tags = tags.split(',');
             tags.forEach(function (tag) {
@@ -77,29 +86,59 @@ var snippetsController = function (app,mongoose,cfg) {
                })
             })
         }
+        
         if(req.body.action=='add'){
-            snippetsModel.save( function( err, user ){
-                    console.log('create snippet success')
-                    res.redirect( cfg.siteDirectory+'snippet/' );
+            snippetsModel.save( function( err, data ){
+                    if(err) throw err;
+                    console.log('create snippet '+data.name+' success');
+                    if(isAjax){
+                        res.json(data)
+                    }else{
+                        res.redirect( cfg.siteDirectory+'snippet/' ); 
+                    }                   
                   });
         }else{
             SnippetsModel.Snippets.findOneAndUpdate({_id:req.body._id},dataReq,function(err,data){
                     if(err) throw err;
-                    console.log('edit snippet success')
-                    res.redirect( cfg.siteDirectory+'snippet/getSnippet?_id='+req.body._id );
+                    console.log('edit snippet '+data.name+' success');
+                    if(isAjax){
+                        res.json(data)
+                    }else{
+                        res.redirect( cfg.siteDirectory+'snippet/getSnippet?_id='+req.body._id );
+                    } 
+                    
                })
         }   
     });
 
     app.get(cfg.siteDirectory+'snippet/getSnippet', function(req, res, next) {
-       var query = req.query;
+       // console.log(req.query)
+       // var query = {
+       //  _id:req.query._id||'',
+       //  name:req.query.name,
+       //  tags:req.query.tags
+       // };
+       // console.log(query)
+       var query = req.query,callback='';
+       if(req.query.callback){
+        callback=query.callback;
+        delete query.callback;
+       } 
        SnippetsModel.Snippets.find(query,function(err,snippet){
-            res.jsonp(snippet)
+            //if(err) res.jsonp([])
+            res.charset = 'utf-8';
+            res.type('application/json');
+            res_data = callback?callback + '(' + JSON.stringify(snippet) + ')' : snippet;
+            res.send(res_data)
+            res.end();
+
+            // req.query.callback=callback;
+            // res.jsonp(snippet)
        })
     });
 
     app.get(cfg.siteDirectory+'snippet/', function(req, res, next) {
-       SnippetsModel.Snippets.find(function(err,snippet){
+       SnippetsModel.Snippets.find().sort({created: -1}).execFind(function(err,snippet){
             res.render('fileList',{
                 type:"snippetList",
                 _root:req.originalUrl,
@@ -108,7 +147,7 @@ var snippetsController = function (app,mongoose,cfg) {
                 blogRoot: cfg.blogRoot,
                 body: snippet
             });
-       })
+       });
     });
 }
 

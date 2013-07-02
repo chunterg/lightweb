@@ -52,6 +52,17 @@ block content
 			Label.form-field-left Tags:
 			div.field
 				input(type="text",name="tag",placeholder="标签名称，用逗号分隔",value=action=="edit"?tags:'')
+		fieldset
+			legend Settings
+			div.form-field
+					Label.form-field-left View type:
+					div.field
+						-for (var key in set.viewType)
+							if action== "add"
+								input(type="radio",id="viewType#{key}",name="viewType",value="#{set.viewType[key]}",checked=key==0?"checked":false) 
+							else
+								input(type="radio",id="viewType#{key}",name="viewType",value="#{set.viewType[key]}",checked=viewType==set.viewType[key]?"checked":false) 
+							Label(for="viewType#{key}") #{set.viewType[key]}
 		div.form-field
 			input(type="submit",value="post")
 			input(type="submit",value="preview",disabled="disabled")
