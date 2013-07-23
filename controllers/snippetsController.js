@@ -2,6 +2,9 @@ var SnippetsModel = require('../models/snippetsModel');
 var snippetsController = function (app,mongoose,cfg) {
     //增加新片断
     app.get(cfg.siteDirectory+'snippet/add', function(req, res, next) {
+        if(!req.session.user){
+            res.redirect('/user/login');
+        }
         res.render('snippets',{
             title:"Add new snippets",
             siteUrl:cfg.siteUrl,
@@ -12,6 +15,9 @@ var snippetsController = function (app,mongoose,cfg) {
 
     //编辑片断
     app.get(cfg.siteDirectory+'snippet/:id/edit', function(req, res, next) {
+        if(!req.session.user){
+            res.redirect('/user/login');
+        }
         SnippetsModel.Snippets.findOne({ _id: req.params.id}, function (err, snippet) {
             if(err) throw err
 
@@ -40,6 +46,15 @@ var snippetsController = function (app,mongoose,cfg) {
             res.end('Wrong argument');
             return;
         }
+        var isAjax = req.body._ajax&&req.body._ajax=="true"?true:false;
+
+        if(!req.session.user){
+            if(isAjax){
+                res.json({status:'fail',message:'need login first'})
+            }else{
+                res.redirect('/user/login');
+            }
+        }
         var tags = req.body.tag+'';
         var _d = new Date();
         var dataReq = {
@@ -54,7 +69,7 @@ var snippetsController = function (app,mongoose,cfg) {
                     viewType:req.body.viewType||'',
                     tags:req.body.tag?req.body.tag.split(','):[]
                 }
-        var isAjax = req.body._ajax&&req.body._ajax=="true"?true:false;
+        
         if(req.body.action=='add'){
             dataReq.created = {
                         name:'chunterg',

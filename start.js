@@ -13,14 +13,18 @@ app.configure(function() {
 	app.set('view options', { pretty: true });
 	app.use(express.methodOverride());
 	app.use(express.bodyParser());
+
 	//load middleware plugins
 	if(cfg.middlewares.length>0){
 		for(var i =0;i<cfg.middlewares.length;i++){
 			app.use(require(cfg.middlewares[i]).run(cfg))
 		}
 	}
-	app.use(app.router);
+	
+	app.use(express.cookieParser('_lightweb'));
+	app.use(express.cookieSession({ cookie: { maxAge: 60 * 60 * 24*7*1000 }}));
 
+	app.use(app.router);
 	//set static file parse
 	app.use(cfg.siteDirectory,express.static(cfg.root,{
 		maxAge:!cfg.cache?604800:0
@@ -35,7 +39,7 @@ app.configure('production', function() {
 });
 
 // Register Controllers
-['snippets','blog','site'].forEach(function (controller) {
+['snippets','blog','user','site'].forEach(function (controller) {
     require('./controllers/' + controller + 'Controller')(app,mongoose,cfg);
 });
 

@@ -1,9 +1,13 @@
 var BlogModel = require('../models/blogModel');
 var fs = require('fs');
-var sys={fileOpen:[]}
+var sys={fileOpen:[]};
+var iconv = require('../node_modules/iconv-lite');
 var blogController = function(app, mongoose, cfg) {
     //文件新建
     app.get(cfg.siteDirectory+'blog/add', function(req, res, next) {
+        if(!req.session.user){
+            res.redirect('/user/login');
+        }
         res.render('blog', {
             title: "Blog-add",
             siteUrl: cfg.siteUrl,
@@ -15,11 +19,15 @@ var blogController = function(app, mongoose, cfg) {
     //文件编辑(所有文件)
     app.get('*.html|*.md', function(req, res, next) {
        if(req.query&&req.query.edit=='true'){
+            if(!req.session.user){
+                res.redirect('/user/login');
+            }
             // 文件同时编辑锁定问题
             // console.log(sys)
             // console.log(req.path+' is opening')
             // sys.fileOpen.push(req.path)
-            var content = fs.readFileSync(cfg.root + req.path, 'utf8');
+            var content = fs.readFileSync(cfg.root + req.path);
+            content = iconv.decode(content, cfg.encode);
             var blogTitle='';
             BlogModel.Blog.findOne({path:req.path},function (err, blog) {
                 if(blog) blogTitle= blog.title||'';     
@@ -65,6 +73,15 @@ var blogController = function(app, mongoose, cfg) {
         }
         var filePath = '';
         var isAjax = req.body._ajax&&req.body._ajax=="true"?true:false;
+
+        if(!req.session.user){
+            if(isAjax){
+                res.json({status:'fail',message:'need login first'})
+            }else{
+                res.redirect('/user/login');
+            }
+        }
+
         if(req.body.action=='add'){
             //文件路径，包含后缀
             filePath = cfg.blogRoot+req.body.fileName + req.body.type;
@@ -76,12 +93,11 @@ var blogController = function(app, mongoose, cfg) {
             filePath = req.body.path;
         }  
         //文件写入
-        fs.open(cfg.root+filePath, "w", 0777, function(e, fd) {
-            if (e) throw e;
-            
-            fs.write(fd,req.body.content, 0, 'utf8', function(e) {
+            var buffer = new Buffer(req.body.content.length);
+            content = iconv.encode(req.body.content, cfg.encode);
+            fs.writeFile(cfg.root+filePath,content ,function(e) {
                 if (e) throw e;
-                fs.closeSync(fd);
+                //fs.closeSync(fd);
                 if(req.body.action=='add'){
                     blogModel.save(function(err, data) {
                         if(err) throw err;
@@ -107,7 +123,6 @@ var blogController = function(app, mongoose, cfg) {
                     res.redirect(filePath);
                 }
             })
-        });
         
     });
     app.get(cfg.siteDirectory+'blog/get_posts', function(req, res, next) {

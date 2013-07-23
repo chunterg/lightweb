@@ -1,0 +1,45 @@
+extends layout
+
+block content
+	-if(action=="login")
+		section
+			h2 #{title}
+			-if(error)
+				p #{error}
+			form#form_login(action='/user/login/', style='margin: 0; padding: 3px 15px;', method='post')
+				fieldset.control-group
+					label.control-label(for='form_username') Username
+					.controls
+						.input-prepend(style='white-space: nowrap;')
+							span.add-on
+								i.icon-envelope
+							input#form_username.span2(type='text', name='username', autocomplete='on')
+				fieldset.control-group
+					label.control-label(for='form_password') Password
+					.controls
+						.input-prepend(style='white-space: nowrap;')
+							span.add-on
+								i.icon-lock
+							input#form_password.span2(type='password', name='password')
+				p.navbar-text
+					button.btn.btn-primary(type='submit') Login
+	-else
+		section
+			h2 #{title}
+			form#form_login(action='/user/register/', style='margin: 0; padding: 3px 15px;', method='post')
+				fieldset.control-group
+					label.control-label(for='form_username') Username
+					.controls
+						.input-prepend(style='white-space: nowrap;')
+							span.add-on
+								i.icon-envelope
+							input#form_username.span2(type='text', name='username', autocomplete='on')
+				fieldset.control-group
+					label.control-label(for='form_password') Password
+					.controls
+						.input-prepend(style='white-space: nowrap;')
+							span.add-on
+								i.icon-lock
+							input#form_password.span2(type='password', name='password')
+				p.navbar-text
+					button.btn.btn-primary(type='submit') Register
