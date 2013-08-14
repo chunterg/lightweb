@@ -1,0 +1,110 @@
+/*
+ * @Author      changbin.wangcb
+ * @Date        2013.04.15
+ * @Description content
+ */
+
+#content {
+    margin-top: 53px;
+    width: 100%;
+}
+.content-inner {
+    margin-right: 240px;
+    padding: 10px;
+}
+.content-inner header h2 {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-bottom: 2px solid #080808;
+}
+.content-inner article {
+    margin-bottom: 20px;
+}
+.content-inner article:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+.content-inner article .block-intro {
+    float: left;
+    padding: 9px;
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    width: 360px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    text-align: center;
+}
+.content-inner article .block-intro .html-demo {
+    display: inline-block;
+    text-align: left;
+}
+.content-inner article .block-main {
+    margin-left: 390px;
+}
+.content-inner .tab-trigger {
+    margin-bottom: 10px;
+    height: 21px;
+    border-bottom: 1px solid #ddd;
+}
+.content-inner .tab-trigger:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+.content-inner .tab-trigger li {
+    float: left;
+    margin: 0 0 -1px 2px;
+    padding: 0 12px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid transparent;
+    color: #06c;
+    cursor: pointer;
+}
+.content-inner .tab-trigger li.current {
+    background-color: #fff;
+    border-color: #ddd;
+    border-bottom-color: transparent;
+    color: #bbb;
+}
+
+/* codemirror */
+.content-inner .CodeMirror pre {
+    line-height: 1.5;
+    font-size: 12px;
+}
+
+/* intro-list */
+.content-inner .intro-list li {
+    float: left;
+    margin: 5px 1px;
+    height: 200px;
+    width: 320px;
+}
+
+/* video */
+.content-inner .video {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 20px 35px;
+    width: 640px;
+    border: 1px solid #94a3ac;
+}
+.content-inner .video video {
+    width: 640px;
+}
+.content-inner .action {
+    position: absolute;
+    background-color: #fff;
+    padding: 0 10px;
+    width: 80px;
+    height: 30px;
+    bottom: -15px;
+    left: 270px;
+}
+.content-inner .action li {
+    line-height: 30px;
+    text-align: center;
+}
