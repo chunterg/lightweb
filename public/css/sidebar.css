@@ -4,20 +4,27 @@
  * @Description nav
  */
 
+/* background */
+.sidebar-inner > ul li a.current {
+    background: url(../img/icon.png) no-repeat;
+}
+
 #sidebar {
     position: fixed;
     top: 52px;
     right: 0;
-    width: 240px;
+    padding: 3px 8px 0 8px;
+    width: 226px;
     height: 100%;
-    background-color: #252b30;
-    border-top: 3px solid #000;
+    background-color: #fff;
+    box-shadow: -4px 0 2px rgba(0, 0, 0, 0.1);
 }
 #sidebar .toggle {
     display: none;
 }
 .sidebar-inner > ul > li {
-    border-bottom: 1px solid #474c55;
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e5e5;
 }
 .sidebar-inner a:hover,
 .sidebar-inner li,
@@ -25,15 +32,17 @@
     transition-duration: 0.3s;
     transition-property: background-color, color;
 }
-.sidebar-inner > ul > .current {
-    background-color: #333B42;
+.sidebar-inner > ul > .current a {
+    color: #56859a;
 }
 .sidebar-inner > ul li a {
     display: block;
-    line-height: 1;
-    font-size: 12px;
-    padding: 5px 20px 8px;
-    color: #fff;
+    padding: 0 20px;
+    height: 24px;
+    line-height: 24px;
+    width: 186px;
+    overflow: hidden;
+    color: #666;
     font-family: "\5FAE\8F6F\96C5\9ED1",
                 "\9ED1\4F53",
                 "\6587\6CC9\9A7F\6B63\9ED1\4F53",
@@ -41,14 +50,28 @@
     font-weight: 400;
 }
 .sidebar-inner > ul h2 a {
-    padding: 7px 20px 10px;
-    font-size: 16px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
     font-weight: 700;
+    color: #444;
 }
-.sidebar-inner > ul li a.current,
+.sidebar-inner > ul li a.current {
+    position: relative;
+    left: -10px;
+    background-color: #3e7087;
+    padding: 0 28px 0 30px;
+    border-radius: 2px 0 0 2px;
+    color: #fff;
+}
+.sidebar-inner > ul li a.current {
+    background-position: 10px -33px;
+}
+.sidebar-inner > ul h2 a.current {
+    background-position: 10px -28px;
+}
 .sidebar-inner > ul li a:hover {
-    background-color: #fff;
-    color: #080808!important;
+    color: #ff7300!important;
 }
 .sidebar-inner > ul li a:hover {
     text-decoration: none;

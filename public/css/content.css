@@ -4,70 +4,58 @@
  * @Description content
  */
 
+a:link, a:visited {
+    color: #333;
+}
+a:hover {
+    color: #ff7300;
+}
 #content {
     margin-top: 53px;
     width: 100%;
 }
 .content-inner {
+    background-color: #efefef;
+    padding: 10px 20px;
+}
+
+/* 有侧边导航的 */
+.snippet .content-inner {
     margin-right: 240px;
-    padding: 10px;
 }
-.content-inner header h2 {
+
+.content-inner > section > header h2 {
     margin-bottom: 10px;
-    padding-left: 10px;
-    border-bottom: 2px solid #080808;
+    font-size: 24px;
+    font-family: 'Microsoft Yahei';
+    color: #1f4661;
 }
-.content-inner article {
+.content-inner > section > article {
+    position: relative;
+    background-color: #fff;
     margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #dadada;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.04);
 }
-.content-inner article:after {
+.content-inner > section > article:after {
     clear: both;
     content: " ";
     display: block;
     height: 0;
 }
-.content-inner article .block-intro {
-    float: left;
-    padding: 9px;
-    background-color: #fff;
-    border: 1px solid #c8c8c8;
-    width: 360px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
-    text-align: center;
+.content-inner > section > article:hover {
+    border-color: #005580;
 }
-.content-inner article .block-intro .html-demo {
-    display: inline-block;
-    text-align: left;
+.content-inner > section > article.unstyle {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
 }
-.content-inner article .block-main {
-    margin-left: 390px;
-}
-.content-inner .tab-trigger {
-    margin-bottom: 10px;
-    height: 21px;
-    border-bottom: 1px solid #ddd;
-}
-.content-inner .tab-trigger:after {
-    clear: both;
-    content: " ";
-    display: block;
-    height: 0;
-}
-.content-inner .tab-trigger li {
-    float: left;
-    margin: 0 0 -1px 2px;
-    padding: 0 12px;
-    height: 20px;
-    line-height: 20px;
-    border: 1px solid transparent;
-    color: #06c;
-    cursor: pointer;
-}
-.content-inner .tab-trigger li.current {
-    background-color: #fff;
-    border-color: #ddd;
-    border-bottom-color: transparent;
-    color: #bbb;
+.content-inner > section > article > h3 {
+    font-size: 16px;
+    color: #666;
+    font-family: 'Microsoft Yahei';
 }
 
 /* codemirror */
@@ -95,7 +83,7 @@
 .content-inner .video video {
     width: 640px;
 }
-.content-inner .action {
+.content-inner .video .action {
     position: absolute;
     background-color: #fff;
     padding: 0 10px;
@@ -104,7 +92,7 @@
     bottom: -15px;
     left: 270px;
 }
-.content-inner .action li {
+.content-inner .video .action li {
     line-height: 30px;
     text-align: center;
 }

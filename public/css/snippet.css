@@ -1,0 +1,131 @@
+/*
+ * @Author      changbin.wangcb
+ * @Date        2013.04.15
+ * @Description content
+ */
+
+/* background */
+.content-inner > section > article.col-2 h3 {
+    background: url(../img/icon.png) no-repeat;
+}
+
+.content-inner > section > header h2 {
+    float: left;
+}
+.content-inner > section > footer .action,
+.content-inner > section > header .action {
+    margin: 15px 0 0 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.content-inner > section > footer .action {
+    margin-right: 20px; 
+    text-align: right;
+}
+.content-inner > section > header .action {
+    float: left;
+}
+.content-inner > section > footer .action a:hover,
+.content-inner > section > header .action a:hover {
+    text-decoration: none;
+}
+.content-inner > section > article {
+    height: 200px;
+}
+.content-inner > section > article > h3 {
+    position: absolute;
+    top: 10px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Microsoft Yahei';
+}
+.content-inner > section > article.col-2 > h3 {
+    left: -4px;
+    padding-left: 114px;
+    height: 30px;
+    line-height: 30px;
+}
+.content-inner > section > article >  a.edit {
+    display: none;
+    position: absolute;
+    right: 4px;
+    top: -20px;
+    font-size: 14px;
+}
+.content-inner > section > article:hover > a.edit {
+    display: block;
+}
+.content-inner > section > article .block-intro {
+    text-align: center;
+}
+.content-inner > section > article.col-2 .block-intro {
+    float: left;
+    margin-top: 30px;
+    padding: 9px;
+    width: 360px;
+}
+.content-inner > section > article > .block-intro .html-demo {
+    display: inline-block;
+    text-align: left;
+}
+.content-inner > section > article.col-2 .block-main {
+    margin-left: 390px;
+}
+.content-inner .tab-trigger {
+    margin-left: 360px;
+    margin-bottom: 12px;
+    height: 18px;
+}
+.content-inner > section > article.col-2 .tab-trigger {
+    margin-left: 0;
+}
+.content-inner .tab-trigger:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+.content-inner .tab-trigger li {
+    float: left;
+    margin-right: 6px;
+    padding: 0 6px;
+    height: 18px;
+    line-height: 18px;
+    color: #444;
+    cursor: pointer;
+    font-weight: 700;
+}
+.content-inner .tab-trigger li.current {
+    background-color: #d91f1f;
+    border-radius: 3px;
+    color: #fff;
+}
+.content-inner .block-main .f-tab-b {
+    display: none;
+}
+
+.modal-footer .btn-primary:link,
+.modal-footer .btn-primary:visited {
+    color: #fff;
+}
+
+#snippet-edit {
+    position: static;
+    margin-left: 0;
+    width: 800px;
+}
+#snippet-edit .form-horizontal .control-label {
+  width: 70px;
+}
+#snippet-edit .form-horizontal .controls {
+  margin-left: 80px;
+}
+#snippet-edit .form-horizontal .controls:first-child {
+  *padding-left: 80px;
+}
+.checkbox input[type="radio"],
+.checkbox input[type="checkbox"] {
+    margin: 0;
+}

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>行业前端解决方案</title>
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/codemirror.css" />
+  <link rel="stylesheet" href="../css/content.css" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/theme/neat.css" />
+  <link rel="stylesheet" href="../css/theme/elegant.css" />
+  <link rel="stylesheet" href="../css/theme/erlang-dark.css" />
+  <link rel="stylesheet" href="../css/theme/night.css" />
+  <link rel="stylesheet" href="../css/theme/monokai.css" />
+  <link rel="stylesheet" href="../css/theme/cobalt.css" />
+  <link rel="stylesheet" href="../css/theme/eclipse.css" />
+  <link rel="stylesheet" href="../css/theme/rubyblue.css" />
+  <link rel="stylesheet" href="../css/theme/lesser-dark.css" />
+  <link rel="stylesheet" href="../css/theme/xq-dark.css" />
+  <link rel="stylesheet" href="../css/theme/xq-light.css" />
+  <link rel="stylesheet" href="../css/theme/ambiance.css" />
+  <link rel="stylesheet" href="../css/theme/blackboard.css" />
+  <link rel="stylesheet" href="../css/theme/vibrant-ink.css" />
+  <link rel="stylesheet" href="../css/theme/solarized.css" />
+  <link rel="stylesheet" href="../css/theme/twilight.css" />
+  <link rel="stylesheet" href="../css/theme/midnight.css" />
+  <link rel="stylesheet" href="../css/animate.css" />
+  <link rel="stylesheet" href="../css/blog/page/animate-index.css" />
+</head>
+<body>
+  <div id="doc">
+  	<header id="header">
+  		<div class="header-inner">
+  			<div class="wrap">
+	  			<h1 class="logo">
+	  				<a href="#" title="UI">LightWeb</a>
+	  			</h1>
+	  			<nav>
+	  				<ul class="nav-list unstyled clearfix">
+		  				<li>
+		  					<a href="index.html" title="首页">首页</a>
+		  				</li>
+		  				<li>
+		  					<a href="framework.html" title="基本框架">基本框架</a>
+		  				</li>
+		  				<li>
+		  					<a href="snippets.html" title="代码片段">代码片段</a>
+		  				</li>
+		  				<li class="current">
+		  					<a href="components.html" title="组件">组件</a>
+		  				</li>
+		  				<li>
+		  					<a href="module.html" title="模块">模块</a>
+		  				</li>
+		  				<li>
+		  					<a href="rule.html" title="编码规范">编码规范</a>
+		  				</li>
+		              	<li>
+		                	<a href="lesson.html" title="前端学习">前端学习</a>
+		              	</li>
+		  			</ul>
+	  			</nav>
+	  			<nav class="">
+	  				<ul class="nav-list fd-right unstyled clearfix">
+	  					<li>
+		  					<a href="#" class="edit">edit</a>
+		  				</li>
+		  				<li class="dropdown theme">
+			                <a class="dropdown-toggle" href="#" title="首页">高亮样式<b class="caret"></b></a>
+			                <ul class="dropdown-menu unstyled">
+			                  <li><a href="#">default</a></li>
+			                  <li><a href="#">ambiance</a></li>
+			                  <li><a href="#">blackboard</a></li>
+			                  <li><a href="#">cobalt</a></li>
+			                  <li><a href="#">eclipse</a></li>
+			                  <li><a href="#">elegant</a></li>
+			                  <li><a href="#">erlang-dark</a></li>
+			                  <li><a href="#">lesser-dark</a></li>
+			                  <li><a href="#">midnight</a></li>
+			                  <li><a href="#">monokai</a></li>
+			                  <li><a href="#">neat</a></li>
+			                  <li><a href="#">night</a></li>
+			                  <li><a href="#">rubyblue</a></li>
+			                  <li><a href="#">solarized dark</a></li>
+			                  <li><a href="#">solarized light</a></li>
+			                  <li><a href="#">twilight</a></li>
+			                  <li><a href="#">vibrant-ink</a></li>
+			                  <li><a href="#">xq-dark</a></li>
+			                  <li><a href="#">xq-light</a></li>
+			                </ul>
+			              </li>
+		  			</ul>
+	  			</nav>
+	  		</div>
+  		</div>
+  	</header>
+  	<div id="content" class="blog">
+  		<div class="content-inner">
+			<section id="example">
+			    <header id="tupian-vertical-intro" class="clearfix">
+			        <h2>Animate Examples</h2>
+			    </header>
+			    <article>
+			    	<h3>Attention seekers</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>flash</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="flash"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated flash');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>bounce</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="bounce"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated bounce');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>shake</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="shake"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated shake');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>tada</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="tada"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated tada');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>swing</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="swing"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated swing');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>wobble</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="wobble"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated wobble');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>wiggle</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="wiggle"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated wiggle');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>pulse</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="pulse"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated pulse');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Flippers</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>flip</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="flip"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated flip');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>flipInX</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="flipInX"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated flipInX');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>flipOutX</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="flipOutX"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated flipOutX');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>flipInY</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="flipInY"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated flipInY');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>flipOutY</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="flipOutY"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated flipOutY');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Fading entrances</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>fadeIn</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeIn"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeIn');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeInUp</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeInUp"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeInUp');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeInDown</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeInDown"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeInDown');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeInLeft</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeInLeft"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeInLeft');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeInRight</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeInRight"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeInRight');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeOutUpBig</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeOutUpBig"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeOutUpBig');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeOutDownBig</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeOutDownBig"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeOutDownBig');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeOutLeftBig</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeOutLeftBig"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeOutLeftBig');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>fadeOutRightBig</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="fadeOutRightBig"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated fadeOutRightBig');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Bouncing entrances</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>bounceIn</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="bounceIn"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated bounceIn');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>bounceInDown</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="bounceInDown"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated bounceInDown');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>bounceOutUp</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="bounceOutUp"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated bounceOutUp');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>bounceOutLeft</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="bounceOutLeft"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated bounceOutLeft');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>bounceOutRight</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="bounceOutRight"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated bounceOutRight');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Rotating entrances</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>rotateIn</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateIn"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateIn');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateInDownLeft</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateInDownLeft"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateInDownLeft');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateInDownRight</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateInDownRight"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateInDownRight');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateInDownRight</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateInDownRight"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateInDownRight');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateInUpRight</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateInUpRight"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateInUpRight');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Rotating exits</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>rotateOut</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateOut"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateOut');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateOutDownLeft</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateOutDownLeft"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateOutDownLeft');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateOutDownRight</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateOutDownRight"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateOutDownRight');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateOutUpLeft</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateOutUpLeft"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateOutUpLeft');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rotateOutUpLeft</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rotateOutUpLeft"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rotateOutUpLeft');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Lightspeed</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>lightSpeedIn</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="lightSpeedIn"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated lightSpeedIn');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>lightSpeedOut</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="lightSpeedOut"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated lightSpeedOut');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			    <article>
+			    	<h3>Specials</h3>
+			    	<div class="examples">
+			    		<div class="example">
+		    				<h3>hinge</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="hinge"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated hinge');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rollOut</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rollOut"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rollOut');</pre>
+		    				</div>
+			    		</div>
+			    		<div class="example">
+		    				<h3>rollOut</h3>
+		    				<div class="area">
+		    					<div class="box" data-animate="rollOut"></div>
+		    				</div>
+		    				<div class="code">
+		    					<pre>$('.box').addClass('animated rollOut');</pre>
+		    				</div>
+			    		</div>
+			    	</div>
+			    </article>
+			</section>
+		</div>
+  </div>
+  <script type="text/javascript" src="http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js"></script>
+  <script type="text/javascript" src="../js/codemirror/lib/codemirror.js"></script>
+  <script type="text/javascript" src="../js/codemirror/mode/css/css.js"></script>
+  <script type="text/javascript" src="../js/codemirror/mode/xml/xml.js"></script>
+  <script type="text/javascript" src="../js/codemirror/mode/javascript/javascript.js"></script>
+  <script type="text/javascript" src="../js/javascript.js"></script>
+  <script type="text/javascript" src="../js/blog/page/animate-index.js"></script>
+</body>

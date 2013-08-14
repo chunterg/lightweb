@@ -1,0 +1,412 @@
+/*
+ * @Author      changbin.wangcb
+ * @Date        2013.08.06
+ * @Description design
+ */
+
+/* background */
+
+h2, h3, h4 {
+    font-family: "Microsoft Yahei";
+}
+h2 {
+    font-size: 16px;
+}
+h3, h4 {
+    font-size: 14px;
+}
+
+#in-design {
+    z-index: 1;
+}
+#in-design .mod-titu .selected {
+    margin: -2px 0 0 -2px;
+    border: 2px solid #4083a9;
+}
+#in-design .mod-titu a.anchor {
+    background-color: rgba(64, 131, 169, 0.3);
+}
+
+/* handler */
+.mod-handler {
+    background: #f6f6f6 url(../img/handle-h.png) no-repeat 50% 3px;
+    height: 8px;
+    border: 1px solid #e4e4e4;
+    border-width: 1px 0;
+}
+
+.img-hid-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+.img-hid {
+    max-width: none;
+}
+
+#content {
+    padding-top: 10px;
+}
+
+/* sidebar */
+#sidebar {
+    position: relative;
+    background-color: #828282;
+    float: left;
+    margin-left: 10px;
+    padding: 2px;
+    width: 400px;
+}
+#sidebar .cell-header {
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+#sidebar .cell-header h2 {
+    padding-left: 16px;
+}
+#sidebar .cell-content {
+    background-color: #f1f1f1;
+    padding: 3px;
+}
+#sidebar .cell-content h3 {
+    padding-left: 13px;
+    color: #ff6c00;
+}
+#sidebar .cell-content dt {
+    float: left;
+    padding: 4px 8px 0 0;
+    width: 82px;
+    text-align: right;
+}
+#sidebar .cell-content dd {
+    margin-left: 90px;
+}
+#sidebar .cell-content .bg-list dt {
+    width: 132px;
+}
+#sidebar .cell-content .bg-list dd {
+    margin-left: 140px;
+}
+#sidebar .cell-content .animate-list {
+    background-color: #fff;
+    border: 1px solid #dadada;
+}
+#sidebar .cell-content .animate-list dl,
+#sidebar .cell-content .anchor-list dl {
+    position: relative;
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 330px;
+    border-bottom: 1px dotted #828282;
+}
+#sidebar .cell-content .anchor-list dl {
+    padding: 10px 0;
+    width: 340px;
+    border-bottom: 1px dotted #828282;
+}
+#sidebar .cell-content .animate-list .del,
+#sidebar .cell-content .anchor-list .del {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+}
+#sidebar .cell-content .anchor-list dt {
+    width: 52px;
+}
+#sidebar .cell-content .anchor-list dd {
+    margin-left: 60px;
+}
+#sidebar .cell-content .action {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+/* content */
+#content-wrap {
+    position: relative;
+    margin: 0 10px 0 434px;
+}
+
+/* mod-action */
+.mod-action {
+    text-align: center;
+}
+
+/* mod-code & mod-model */
+.mod-code,
+.mod-model {
+    background-color: #828282;
+    margin-top: 15px;
+    padding: 2px;
+}
+.mod-code .cell-header,
+.mod-model .cell-header {
+    padding: 0 16px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+.mod-code .cell-header i,
+.mod-model .cell-header i {
+    float: left;
+    margin: 12px 6px 0 0;
+    cursor: pointer;
+}
+.mod-code .cell-header h3,
+.mod-model .cell-header h3 {
+    float: left;
+    margin-right: 30px;
+    cursor: pointer;
+}
+.mod-code .cell-header span,
+.mod-model .cell-header span {
+    font-weight: 300;
+    font-size: 12px;
+    color: #ff4;
+}
+.mod-code .cell-header .btn,
+.mod-model .cell-header .btn {
+    padding: 0;
+    cursor: pointer;
+}
+.mod-code .cell-content,
+.mod-model .cell-content {
+    background-color: #f1f1f1;
+    display: none;
+    padding: 3px;
+}
+
+/* animate-set */
+#animate-set {
+    display: none; 
+    position: absolute;
+    top: 220px;
+    left: 360px;
+    background-color: #fff;
+    padding: 10px 30px;
+    width: 60%;
+    border: 2px solid #828282;
+    z-index: 5;
+}
+#animate-set .icon-remove {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+#animate-set .icon-remove:hover {
+    border-color: #ff7300;
+}
+#animate-set h3 {
+    float: left;
+    width: 40%;
+    color: #ff6c00;
+}
+#animate-set .wrap {
+    float: left;
+    width: 40%;
+    zoom: 1;
+}
+#animate-set .wrap:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+}
+#animate-set .wrap dl {
+    float: left;
+    margin-right: 20px;
+}
+#animate-set .wrap dt {
+    float: left;
+    margin: 6px 4px;
+}
+#animate-set .wrap dd {
+    float: left;
+}
+#animate-set .animate-list {
+    float: right;
+    width: 60%;
+    overflow: hidden;
+}
+#animate-set .hover-animate-list {
+    float: left;
+    width: 40%;
+}
+#animate-set .animate-list .wrap {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    height: 480px;
+    width: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-y: scroll; 
+}
+#animate-set .animate-list .list {
+    margin-bottom: 15px;
+    zoom: 1;
+}
+#animate-set .animate-list .list:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+#animate-set .animate-list li {
+    float: left;
+    margin: 8px 8px 0 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+#animate-set .animate-list li.selected,
+#animate-set .animate-list li:hover {
+    border-color: #2284d1;
+}
+#animate-set .animate-list .handler {
+    background-color: #828282;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+#animate-set .animate-list .more-exit {
+    display: none;
+}
+#animate-set .triangle {
+    position: absolute;
+    left: -14px;
+    top: 380px;
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #fff; 
+    border-top: 12px solid #fff; 
+    border-right: 12px solid #828282; 
+}
+#animate-set .triangle div {
+    position: absolute;
+    left: 4px;
+    top: -10px;
+    width: 0;
+    width: 0;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #fff;
+}
+#animate-set .action {
+    border-bottom: 2px solid #828282;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+#create-type .action {
+    margin-bottom: 10px;
+    text-align: center;
+}
+#create-type .btn {
+    margin: 0 10px;
+}
+#create-type textarea {
+    opacity: 0;
+}
+#create-type .modal-footer {
+    display: none;
+}
+#guide p {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.guide-diy-step1,
+.guide-diy-step2,
+.guide-diy-step3,
+.guide-diy-step4 {
+    height: 286px;
+    width: 540px;
+}
+.guide-diy-step5,
+.guide-diy-step6 {
+    height: 310px;
+    width: 550px;
+}
+.guide-diy-step1 .guide-main {
+    background: url(http://img.china.alibaba.com/cms/upload/2013/299/216/1612992_1625054590.png) no-repeat;
+    height: 286px;
+    width: 540px;
+}
+.guide-diy-step2 .guide-main {
+    background: url(http://img.china.alibaba.com/cms/upload/2013/499/216/1612994_1625054590.png) no-repeat;
+    height: 286px;
+    width: 540px;
+}
+.guide-diy-step3 .guide-main {
+    background: url(http://img.china.alibaba.com/cms/upload/2013/340/316/1613043_1625054590.png) no-repeat;
+    height: 286px;
+    width: 540px;
+}
+.guide-diy-step4 .guide-main {
+    background: url(http://img.china.alibaba.com/cms/upload/2013/400/316/1613004_1625054590.png) no-repeat;
+    height: 286px;
+    width: 540px;
+}
+.guide-diy-step5 .guide-main {
+    background: url(http://img.china.alibaba.com/cms/upload/2013/000/316/1613000_1625054590.png) no-repeat;
+    height: 310px;
+    width: 550px;
+}
+.guide-diy-step6 .guide-main {
+    background: url(http://img.china.alibaba.com/cms/upload/2013/799/216/1612997_1625054590.png) no-repeat;
+    height: 310px;
+    width: 550px;
+}
+.guide-step .close {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+.guide-diy-step1 .close,
+.guide-diy-step2 .close,
+.guide-diy-step3 .close,
+.guide-diy-step4 .close {
+    right: 36px;
+    top: 6px;
+}
+.guide-diy-step5 .close,
+.guide-diy-step6 .close {
+    left: 31px;
+    top: 75px;
+}
+
+.guide-diy-step1 .next,
+.guide-diy-step2 .next,
+.guide-diy-step3 .next,
+.guide-diy-step4 .next {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+}
+.guide-diy-step5 .next,
+.guide-diy-step6 .next {
+    position: absolute;
+    height: 46px;
+    width: 138px;
+}
+.guide-diy-step1 .next,
+.guide-diy-step2 .next,
+.guide-diy-step3 .next,
+.guide-diy-step4 .next {
+    right: 69px;
+    bottom: 104px;
+}
+.guide-diy-step5 .next,
+.guide-diy-step6 .next {
+    left: 103px;
+    bottom: 58px;
+}
