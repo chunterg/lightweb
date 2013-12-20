@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <title>行业前端解决方案</title>
+  <meta charset="gbk"/>
+  <title>��ҵǰ�˽������</title>
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <link rel="stylesheet" href="css/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.css" />
+  <link rel="stylesheet" href="css/lib/codemirror.css" />
   <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/content.css" />
   <link rel="stylesheet" href="css/snippet.css" />
@@ -39,25 +39,25 @@
 	  			<nav>
 	  				<ul class="nav-list unstyled clearfix">
 		  				<li>
-		  					<a href="index.html" title="首页">首页</a>
+		  					<a href="index.html" title="��ҳ">��ҳ</a>
 		  				</li>
 		  				<li>
-		  					<a href="framework.html" title="基本框架">基本框架</a>
+		  					<a href="framework.html" title="�������">�������</a>
 		  				</li>
 		  				<li>
-		  					<a href="snippets.html" title="代码片段">代码片段</a>
+		  					<a href="snippets.html" title="����Ƭ��">����Ƭ��</a>
 		  				</li>
 		  				<li class="current">
-		  					<a href="components.html" title="组件">组件</a>
+		  					<a href="components.html" title="���">���</a>
 		  				</li>
 		  				<li>
-		  					<a href="module.html" title="模块">模块</a>
+		  					<a href="module.html" title="ģ��">ģ��</a>
 		  				</li>
 		  				<li>
-		  					<a href="rule.html" title="编码规范">编码规范</a>
+		  					<a href="rule.html" title="����淶">����淶</a>
 		  				</li>
 		              	<li>
-		                	<a href="lesson.html" title="前端学习">前端学习</a>
+		                	<a href="lesson.html" title="ǰ��ѧϰ">ǰ��ѧϰ</a>
 		              	</li>
 		  			</ul>
 	  			</nav>
@@ -67,7 +67,7 @@
 		  					<a href="#" class="edit">edit</a>
 		  				</li>
 		  				<li class="dropdown theme">
-			                <a class="dropdown-toggle" href="#" title="首页">高亮样式<b class="caret"></b></a>
+			                <a class="dropdown-toggle" href="#" title="��ҳ">������ʽ<b class="caret"></b></a>
 			                <ul class="dropdown-menu unstyled">
 			                  <li><a href="#">default</a></li>
 			                  <li><a href="#">ambiance</a></li>
@@ -94,23 +94,10 @@
 	  			</nav>
 	  		</div>
   		</div>
-  		<div class="save">保存</div>
+  		<div class="save">����</div>
   	</header>
   	<div id="content" class="snippet">
-  		<div class="content-inner">
-			<section id="tupian-vertical">
-			    <header id="tupian-vertical-intro" class="clearfix">
-			        <h2>图片垂直居中组件</h2>
-			        <div class="action">
-			        	<a href="#" title="新增代码片段" class="add"><i class="icon-plus"></i>ADD</a>
-			        </div>
-			    </header>
-			    <footer>
-			    	<div class="action">
-			    		<a href="#" title="新增代码片段分组" class="add"><i class="icon-plus"></i>ADD</a>
-			    	</div>
-			    </footer>
-			</section>			
+  		<div class="content-inner">			
 			<script type="text/html" id="temp-article-col-2">
 				<div class="block-intro">
 					<!--ko if: style-->
@@ -127,18 +114,18 @@
 		                <li class="f-tab-t" data-bind="if: html">HTML</li>
 		                <li class="f-tab-t" data-bind="if: style">CSS</li>
 		            </ul>
-		            <div class="f-tab-b" data-mode="html" data-bind="if: html">
-		            	<textarea class="mode-html" data-bind="text: html"></textarea>
+		            <div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
+		            	<textarea class="mode-html" data-key="html" data-mode="xml" data-bind="text: html"></textarea>
 		            </div>
-		            <div class="f-tab-b" data-mode="css" data-bind="if: style">
-		            	<textarea class="mode-css" data-bind="text: style"></textarea>
+		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
+		            	<textarea class="mode-css" data-key="style" data-mode="css" data-bind="text: style"></textarea>
 		            </div>
 		        </div>
 			</script>
 			<script type="text/html" id="temp-article-n">
 				<div class="block-main">
 					<ul class="tab-trigger unstyled">
-						<li class="f-tab-t">展示效果</li>
+						<li class="f-tab-t">չʾЧ��</li>
 						<li class="f-tab-t" data-bind="if: html">HTML</li>
 						<li class="f-tab-t" data-bind="if: style">CSS</li>
 					</ul>
@@ -152,40 +139,29 @@
 						</div>
 						<!--/ko-->
 					</div>
-					<div class="f-tab-b" data-mode="html" data-bind="if: html">
-		            	<textarea class="mode-html" data-bind="text: html"></textarea>
+					<div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
+		            	<textarea class="mode-html" data-key="html" data-mode="xml" data-bind="text: html"></textarea>
 		            </div>
-		            <div class="f-tab-b" data-mode="css" data-bind="if: style">
-		            	<textarea class="mode-css" data-bind="text: style"></textarea>
+		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
+		            	<textarea class="mode-css" data-key="style" data-mode="css" data-bind="text: style"></textarea>
 		            </div>
 				</div>
 			</script>
 		</div>
-  		<!-- 侧边栏 -->
+  		<!-- ����� -->
   		<aside id="sidebar" class="sidebar">
-  			<a class="toggle" href="#" titile="展开">展开</a>
+  			<a class="toggle" href="#" titile="չ��">չ��</a>
 
   			<div class="sidebar-inner">
   				<ul class="unstyled">
-  					<li class="nav-parent current">
-  						<h2>
-  							<a  href="#tupian-vertical">图片垂直居中组件</a>
-  						</h2>
-  						<ul class="unstyled" style="">
-  							<li class="nav-child">
-  								<a href="#a-51d2b9fc36831ae81c000001" data-id="51d2b9fc36831ae81c000001" data-type="col-2" class="">正方形垂直居中</a>
-  							</li>
-  							<li class="nav-child"><a class="" href="#a-51dcf6a0866642101c000017" data-id="51dcf6a0866642101c000017" data-type="col-2">矮胖长方形垂直居中</a></li>
-							<li class="nav-child"><a class="" data-type="col-2" data-id="51dcfc8f866642101c00001d" href="#a-51dcfc8f866642101c00001d">高瘦长方形垂直居中</a></li>
-						</ul>
-					</li>
+  					
 				</ul>
 			</div>
   		</aside>
   		<div class="modal hide fade" id="snippet-edit">
   			<div class="modal-header">
   				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  				<h3>代码片段</h3>
+  				<h3>����Ƭ��</h3>
   			</div>
   			<div class="modal-body">
   				<form action="#" class="form-horizontal" data-bind="template: {name: 'temp-snippet-edit'}">
@@ -193,59 +169,60 @@
   				</form>
   			</div>
   			<div class="modal-footer">
-  				<a href="#" class="btn btn-close">关闭</a>
-  				<a href="#" class="btn btn-primary">提交</a>
+  				<a href="#" class="btn btn-close">�ر�</a>
+  				<a href="#" class="btn btn-primary">�ύ</a>
   			</div>
   		</div>
   		<div class="modal hide fade" id="section-add">
   			<div class="modal-header">
   				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  				<h3>代码片段</h3>
+  				<h3>����Ƭ��</h3>
   			</div>
   			<div class="modal-body">
   				<form action="#" class="form-horizontal">
   					<div class="control-group">
 						<label class="control-label" for="se-name">Name:</label>
 						<div class="controls">
-							<input type="text" id="se-name" placeholder="代码片段分组标题" required="true" />
+							<input type="text" id="se-name" placeholder="����Ƭ�η������" required="true" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="se-id">ID:</label>
 						<div class="controls">
-							<input type="text" id="se-id" placeholder="代码片段分组id" required="true" />
+							<input type="text" id="se-id" placeholder="����Ƭ�η���id" required="true" />
 						</div>
 					</div>
   				</form>
   			</div>
   			<div class="modal-footer">
-  				<a href="#" class="btn btn-close">关闭</a>
-  				<a href="#" class="btn btn-primary">提交</a>
+  				<a href="#" class="btn btn-close">�ر�</a>
+  				<a href="#" class="btn btn-primary">�ύ</a>
   			</div>
   		</div>
+  		
   		<script type="text/html" id="temp-snippet-edit">
   			<div class="control-group">
 				<label class="control-label" for="sp-name">Name:</label>
 				<div class="controls">
-					<input type="text" id="sp-name" placeholder="代码片段标题" data-bind="value: name" />
+					<input type="text" id="sp-name" placeholder="����Ƭ�α���" data-bind="value: name" />
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label">Html:</label>
 				<div class="controls">
-					<textarea class="sp-html" data-bind="text: html" data-mode="xml"></textarea>
+					<textarea class="sp-html" data-bind="text: html" data-mode="xml" data-key="html"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label">Style:</label>
 				<div class="controls">
-					<textarea class="sp-style" data-bind="text: style" data-mode="css"></textarea>
+					<textarea class="sp-style" data-bind="text: style" data-mode="css" data-key="style"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label">script:</label>
 				<div class="controls">
-					<textarea class="sp-script" data-bind="text: script" data-mode="javascript"></textarea>
+					<textarea class="sp-script" data-bind="text: script" data-mode="javascript" data-key="script"></textarea>
 				</div>
 			</div>
 			<div class="control-group" data-bind="ifnot: _id">
@@ -264,39 +241,59 @@
 			<div class="control-group">
 				<label class="control-label">Document:</label>
 				<div class="controls">
-					<textarea class="sp-doc" data-bind="text: doc.docContent"></textarea>
+					<textarea class="sp-doc" data-bind="text: doc.docContent" data-key="doc.docContent"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="sp-tag">Tag:</label>
 				<div class="controls">
-					<input type="text" id="sp-tag" placeholder="标签名称，逗号分隔" data-bind="value: tags" />
+					<input type="text" id="sp-tag" placeholder="��ǩ���ƣ����ŷָ�" data-bind="value: tags" />
 				</div>
 			</div>
 			<div class="control-group" data-bind="ifnot: _id">
 				<label class="control-label">ViewType:</label>
 				<div class="controls">
 					<label class="checkbox control-label">
-						<input type="radio" name="view-type" id="sp-nor" value="单列" />
-						单列
+						<input type="radio" name="view-type" id="sp-nor" value="����" />
+						����
 					</label>
 					<label class="checkbox control-label">
-						<input type="radio" name="view-type" id="sp-col2" value="双列" />
-						双列
+						<input type="radio" name="view-type" id="sp-col2" value="˫��" />
+						˫��
 					</label>
 				</div>
 			</div>
   		</script>
+  		<script type="text/javascript">
+  			window.dataModel = {
+  				'tupian-vertical': {
+  					'name': 'ͼƬ��ֱ�������',
+  					'list': [
+  						{
+  							'id': '51d2b9fc36831ae81c000001',
+  							'name': '�����δ�ֱ����',
+  							'type': 'col-2'
+  						},
+  						{
+  							'id': '51dcf6a0866642101c000017',
+  							'name': '���ֳ����δ�ֱ����',
+  							'type': 'col-2'
+  						},
+  						{
+  							'id': '51dcfc8f866642101c00001d',
+  							'name': '���ݳ����δ�ֱ����',
+  							'type': 'col-2'
+  						}
+  					]
+  				}
+  			}
+  		</script>
   	</div>
   </div>
-  <script type="text/javascript" src="http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js"></script>
   <script type="text/javascript" src="js/codemirror/lib/codemirror.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/css/css.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/xml/xml.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/javascript/javascript.js"></script>
-  <script type="text/javascript" src="js/javascript.js"></script>
-  <script type="text/javascript" src="js/knockout.js"></script>
-  <script type="text/javascript" src="js/sidebar.js"></script>
-  <script type="text/javascript" src="js/content.js"></script>
-  <script type="text/javascript" src="js/wiki.js"></script>
+  <script type="text/javascript" src="js/lib/require-min.js"></script>
+  <script type="text/javascript" src="js/snippets.js"></script>
 </body>

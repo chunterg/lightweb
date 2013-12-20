@@ -1,18 +1,13 @@
 /*
  * @Author      changbin.wangcb
  * @Date        2013.07.09
- * @Description sidebar
+ * @Description sidebar-侧边栏
  */
 
-jQuery.namespace('lightWeb');
-(function ($, win, doc, LW) {
-    var tmpl = '<article class="code-mirror #{type}" id="a-#{id}" data-id="#{id}">\
-                    <h3>#{name}</h3>\
-                    <a href="#" class="edit"><i class="icon-edit"></i>edit</a>\
-                    <!--ko template: {name: "temp-article-#{type}"}--><!--/ko-->\
-                </article>',
-        win = $(win),
-        doc = $(doc);
+define(['jquery'], function($){
+    "use strict";
+    var win = $(window),
+        doc = $(document);
 
     function sidebar(elem){
         return new sidebar.prototype.init(elem);
@@ -24,49 +19,59 @@ jQuery.namespace('lightWeb');
             this.container = $(elem);
             this.navs = [];
             this.map = {};
+            this.render();
+            this.bindEvent();
+            this.setHeight();
         },
-        // 渲染article && 获取右侧导航信息
-        render: function(dtd){
+        // 渲染右侧导航
+        render: function(){
             var self = this,
-                $sections = $('#content div.content-inner > section'),
-                $article,
-                $items = self.container.find('> ul > li.nav-parent');
+                container = self.container.find('>ul');
 
-            if( !$items.length ){
+            if( !$('#content div.content-inner>section').length ){
+                self.sidebar.hide();
                 return;
             }
-
-            $items.each(function(idx, el){
-
+            $('#content div.content-inner>section').each(function(i, el){
                 var _this = $(el),
-                    $childs = _this.find('> ul > li.nav-child'),
-                    $child, i, l;
+                    parent = _this.find('>header'),
+                    childs = _this.find('>article'),
+                    $parent = $('<li>', {
+                        'class': 'nav-parent'
+                    }),
+                    $h2 = $('<h2>'),
+                    child,
+                    $ul, $li , $a, i, l;
 
-                self.navs.push( _this.find('h2 a').attr('href') );
+                $a = $('<a>').attr('href', '#' + _this.attr('id')).text(parent.find('>h2').text()).appendTo($h2);
+                $parent.append($h2);
+                self.navs.push( '#' + _this.attr('id') );
 
-                if( $childs.length ){
+                if( childs.length ){
+                    $ul = $('<ul>', {
+                        'class': 'unstyled'
+                    });
 
-                    for( i = 0, l = $childs.length; i < l; i++ ){
-                        
-                        $child = $childs.eq(i).find('> a');
+                    for( i = 0, l = childs.length; i < l; i++ ){
+                        child = childs.eq(i);
 
-                        $article = $( _template( tmpl, {
-                            'id': $child.data('id'),
-                            'name': $child.text(),
-                            'type': $child.data('type') || 'n'
-                        } ) ).insertBefore( $sections.eq(idx).find('> footer') );
+                        if( !child.attr('id') ){
+                            continue;
+                        }
 
-                        self.navs.push( $child.attr('href') );
-
+                        $li = $('<li>', {
+                            'class': 'nav-child'
+                        });
+                        $a = $('<a>').attr('href', '#' + child.attr('id')).text(child.find('>h3').text()).appendTo($li);
+                        $ul.append($li);
+                        self.navs.push( '#' + child.attr('id') );
                     }
+
+                    $parent.append($ul);
                 }
 
+                container.append($parent);
             });
-
-            dtd.resolve();
-
-            self.bindEvent();
-            self.setHeight();
         },
         /**
          * 新增导航节点，渲染article
@@ -277,8 +282,6 @@ jQuery.namespace('lightWeb');
 
     sidebar.prototype.init.prototype = sidebar.prototype;
 
-    LW.sidebar = sidebar;
-
     /**
      * 模板渲染
      * @param  {String}         tpl  模板
@@ -292,4 +295,5 @@ jQuery.namespace('lightWeb');
         return tpl;
     }
 
-})(jQuery, window, document, lightWeb);
+    return sidebar;
+});

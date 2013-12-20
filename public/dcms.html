@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gbk" />
+    <title>dcms模拟页面</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" type="text/css" href="http://static.c.aliimg.com/fdevlib/css/fdev-v4/core/fdev-op.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <style type="text/css">
+        #content {
+            padding: 50px;
+        }
+        #designDialog {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 0;
+            border: 5px solid rgba(22, 22, 22, 0.7);
+            overflow: hidden;
+        }
+        .dialog-basic {
+            background-color: rgba(22, 22, 22, 0.7);
+            padding: 5px;
+            width: 500px;
+            display: none;
+        }
+        .dialog-basic header {
+            height: 28px;
+            border-bottom: 1px solid #d9d9d9;
+            background-color: #e2e2e2;
+            padding: 0 12px;
+        }
+        .dialog-basic header h5 {
+            line-height: 28px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #2e2e2e;
+        }
+        .dialog-basic header .close {
+            background: url("http://img.china.alibaba.com/cms/upload/2013/813/316/1613318_133354742.png") no-repeat -80px 8px;
+            float: right;
+            width: 12px;
+            height: 28px;
+            line-height: 150px;
+            overflow: hidden;
+            opacity: 1;
+        }
+        .dialog-basic header .close:active {
+            background-position:-40px 8px;
+        }
+    </style>
+    <base target="_blank" />
+</head>
+<body>
+    <div id="doc">           
+        <div id="container">
+            
+        </div>
+        <div id="content" class="cell-page-main">
+            <a href="#" class="btn">设置题图</a>
+        </div>
+        <script type="text/javascript">
+            window.designObj = '{\
+                "designBgImg": "http://img.china.alibaba.com/cms/upload/2013/020/316/1613020_1625054590.jpg",\
+                "fixBgImg": "",\
+                "contentBgImg": "",\
+                "contentBg": "f00",\
+                "designHeight": "200",\
+                "animates": [],\
+                "anchors": []\
+            }';
+        </script>
+        <div id="designDialog" class="dialog-basic">
+            <header>
+                <a href="#" class="close">关闭</a>
+                <h5>设置题图动画</h5>
+            </header>
+        </div>
+        <script src="http://static.c.aliimg.com/fdevlib/js/fdev-v4/core/fdev-min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            (function($){
+                $(function(){
+                    var $designDialog = $('#designDialog'),
+                        $iframe = null,
+                        dsIframe = null,
+                        win = $(window);
+
+                    $('#content a.btn').on('click', function(e){
+                        e.preventDefault();
+
+                        if( $iframe === null ){
+                            $('<iframe id="designIfr" name="designIfr" src="design-for-dcms.html" frameborder="1" scrolling="auto" height="' + (win.height() - 58) + '" width="100%"></iframe>').appendTo($designDialog);
+
+                            $iframe = $designDialog.find('iframe').css('border', '0 none');
+
+                            $iframe.load(function(){
+                                dsIframe = $iframe[0];
+
+                                openDesign();
+                            });
+                        }else{
+                            $iframe.css('height', win.height() - 58);
+
+                            openDesign();
+                        }
+
+                        $designDialog.css('width', win.width() - 58).show();
+
+                    });
+
+                    $('header a.close', $designDialog).on('click', function(e){
+                        e.preventDefault();
+
+                        $designDialog.hide();
+                    });
+
+                    function openDesign(){
+                        if( designObj == null ){
+                            designIfr.designDCMS.Design.add();
+                        }else{
+                            designIfr.designDCMS.Design.edit(designObj);
+                        }
+                    }
+
+                    window.ok = function(obj, html){
+                        designObj = obj;
+                        $('#container').html(html);
+                    }
+                });
+            })(jQuery);
+        </script>
+    </div>
+</body>
+</html>
