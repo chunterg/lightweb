@@ -9,5 +9,4 @@ var Blog = new Schema({
         },
         like:Number
        })
-
 exports.Blog = mongoose.model('Blog', Blog);

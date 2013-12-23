@@ -53,7 +53,7 @@ var userController = function (app, mongoose, cfg) {
             userModel.username = username;
             userModel.save(function(err) {
                 if (err) throw err;
-                req.session.user = userInfo.username;
+                req.session.user = username;
                 res.redirect('/');
             });   
         }else{
