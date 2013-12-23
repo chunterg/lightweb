@@ -6,7 +6,7 @@ SiteController = function (app, mongoose, cfg) {
     //include
     app.get('*.html|*.htm', function(req, res, next) {
         var content = fs.readFileSync(cfg.root + req.path);
-        //content = iconv.decode(content, cfg.encode);
+        // content = iconv.decode(content, cfg.encode);
         res.charset = cfg.encode;
         res.end(content)
     });

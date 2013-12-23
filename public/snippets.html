@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Ë°å‰∏öÂâçÁ´ØËß£ÂÜ≥ÊñπÊ°à</title>
+  <meta charset="gbk"/>
+  <title>––“µ«∞∂ÀΩ‚æˆ∑Ω∞∏</title>
   <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <link rel="stylesheet" href="css/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.css" />
+  <link rel="stylesheet" href="css/lib/codemirror.css" />
   <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/content.css" />
+  <link rel="stylesheet" href="css/snippet.css" />
   <link rel="stylesheet" href="css/sidebar.css" />
   <link rel="stylesheet" href="css/theme/neat.css" />
   <link rel="stylesheet" href="css/theme/elegant.css" />
@@ -38,25 +39,25 @@
 	  			<nav>
 	  				<ul class="nav-list unstyled clearfix">
 		  				<li>
-		  					<a href="index.html" title="È¶ñÈ°µ">È¶ñÈ°µ</a>
+		  					<a href="index.html" title=" ◊“≥"> ◊“≥</a>
 		  				</li>
 		  				<li>
-		  					<a href="framework.html" title="Âü∫Êú¨Ê°ÜÊû∂">Âü∫Êú¨Ê°ÜÊû∂</a>
+		  					<a href="framework.html" title="ª˘±æøÚº‹">ª˘±æøÚº‹</a>
 		  				</li>
 		  				<li>
-		  					<a href="snippets.html" title="‰ª£Á†ÅÁâáÊÆµ">‰ª£Á†ÅÁâáÊÆµ</a>
+		  					<a href="snippets.html" title="¥˙¬Î∆¨∂Œ">¥˙¬Î∆¨∂Œ</a>
 		  				</li>
 		  				<li class="current">
-		  					<a href="components.html" title="ÁªÑ‰ª∂">ÁªÑ‰ª∂</a>
+		  					<a href="components.html" title="◊Èº˛">◊Èº˛</a>
 		  				</li>
 		  				<li>
-		  					<a href="module.html" title="Ê®°Âùó">Ê®°Âùó</a>
+		  					<a href="module.html" title="ƒ£øÈ">ƒ£øÈ</a>
 		  				</li>
 		  				<li>
-		  					<a href="rule.html" title="ÁºñÁ†ÅËßÑËåÉ">ÁºñÁ†ÅËßÑËåÉ</a>
+		  					<a href="rule.html" title="±‡¬ÎπÊ∑∂">±‡¬ÎπÊ∑∂</a>
 		  				</li>
 		              	<li>
-		                	<a href="lesson.html" title="ÂâçÁ´ØÂ≠¶‰π†">ÂâçÁ´ØÂ≠¶‰π†</a>
+		                	<a href="lesson.html" title="«∞∂À—ßœ∞">«∞∂À—ßœ∞</a>
 		              	</li>
 		  			</ul>
 	  			</nav>
@@ -66,7 +67,7 @@
 		  					<a href="#" class="edit">edit</a>
 		  				</li>
 		  				<li class="dropdown theme">
-			                <a class="dropdown-toggle" href="#" title="È¶ñÈ°µ">È´ò‰∫ÆÊ†∑Âºè<b class="caret"></b></a>
+			                <a class="dropdown-toggle" href="#" title=" ◊“≥">∏ﬂ¡¡—˘ Ω<b class="caret"></b></a>
 			                <ul class="dropdown-menu unstyled">
 			                  <li><a href="#">default</a></li>
 			                  <li><a href="#">ambiance</a></li>
@@ -93,23 +94,11 @@
 	  			</nav>
 	  		</div>
   		</div>
+  		<div class="save">±£¥Ê</div>
   	</header>
-  	<div id="content">
-  		<div class="content-inner">
-			<section id="tupian-vertical">
-			    <header id="tupian-vertical-intro" class="clearfix">
-			        <h2>ÂõæÁâáÂûÇÁõ¥Â±Ö‰∏≠ÁªÑ‰ª∂</h2>
-			        <div class="action">
-			        	<a href="#" class="add"><i class="icon-plus"></i>ADD</a>
-			        </div>
-			    </header>   
-			    <article class="code-mirror col-2" id="a-51cab312e72e625824000001" style="height: 205px;" data-id="51cab312e72e625824000001">
-			        <h3>Ê≠£ÊñπÂΩ¢ÂûÇÁõ¥Â±Ö‰∏≠</h3>
-			        <a href="#" class="edit"><i class="icon-edit"></i>edit</a>
-			        <!--ko template: {name: "article-col-2"}--><!--/ko-->
-			    </article>
-			</section>
-			<script type="text/html" id="article-col-2">
+  	<div id="content" class="snippet">
+  		<div class="content-inner">			
+			<script type="text/html" id="temp-article-col-2">
 				<div class="block-intro">
 					<!--ko if: style-->
 					<style type="text/css" data-bind="html: style">
@@ -125,18 +114,18 @@
 		                <li class="f-tab-t" data-bind="if: html">HTML</li>
 		                <li class="f-tab-t" data-bind="if: style">CSS</li>
 		            </ul>
-		            <div class="f-tab-b" data-mode="html" data-bind="if: html">
-		            	<textarea class="mode-html" data-bind="text: html"></textarea>
+		            <div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
+		            	<textarea data-key="html" data-mode="xml" data-bind="value: html"></textarea>
 		            </div>
-		            <div class="f-tab-b" data-mode="css" data-bind="if: style">
-		            	<textarea class="mode-css" data-bind="text: style"></textarea>
+		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
+		            	<textarea data-key="style" data-mode="css" data-bind="value: style"></textarea>
 		            </div>
 		        </div>
 			</script>
-			<script type="text/html" id="article-n">
+			<script type="text/html" id="temp-article-n">
 				<div class="block-main">
 					<ul class="tab-trigger unstyled">
-						<li class="f-tab-t">Â±ïÁ§∫ÊïàÊûú</li>
+						<li class="f-tab-t">’π æ–ßπ˚</li>
 						<li class="f-tab-t" data-bind="if: html">HTML</li>
 						<li class="f-tab-t" data-bind="if: style">CSS</li>
 					</ul>
@@ -150,33 +139,164 @@
 						</div>
 						<!--/ko-->
 					</div>
-					<div class="f-tab-b" data-mode="html" data-bind="if: html">
-		            	<textarea class="mode-html" data-bind="text: html"></textarea>
+					<div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
+		            	<textarea data-key="html" data-mode="xml" data-bind="value: html"></textarea>
 		            </div>
-		            <div class="f-tab-b" data-mode="css" data-bind="if: style">
-		            	<textarea class="mode-css" data-bind="text: style"></textarea>
+		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
+		            	<textarea data-key="style" data-mode="css" data-bind="value: style"></textarea>
 		            </div>
 				</div>
 			</script>
 		</div>
-  		<!-- ‰æßËæπÊ†è -->
+  		<!-- ≤‡±ﬂ¿∏ -->
   		<aside id="sidebar" class="sidebar">
-  			<a class="toggle" href="#" titile="Â±ïÂºÄ">Â±ïÂºÄ</a>
+  			<a class="toggle" href="#" titile="’πø™">’πø™</a>
+
   			<div class="sidebar-inner">
   				<ul class="unstyled">
   					
-  				</ul>
-  			</div>
+				</ul>
+			</div>
   		</aside>
+  		<div class="modal hide fade" id="snippet-edit">
+  			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				<h3>¥˙¬Î∆¨∂Œ</h3>
+  			</div>
+  			<div class="modal-body">
+  				<form action="#" class="form-horizontal" data-bind="template: {name: 'temp-snippet-edit'}">
+  					
+  				</form>
+  			</div>
+  			<div class="modal-footer">
+  				<a href="#" class="btn btn-close">πÿ±’</a>
+  				<a href="#" class="btn btn-primary">Ã·Ωª</a>
+  			</div>
+  		</div>
+  		<div class="modal hide fade" id="section-add">
+  			<div class="modal-header">
+  				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				<h3>¥˙¬Î∆¨∂Œ</h3>
+  			</div>
+  			<div class="modal-body">
+  				<form action="#" class="form-horizontal">
+  					<div class="control-group">
+						<label class="control-label" for="se-name">Name:</label>
+						<div class="controls">
+							<input type="text" id="se-name" placeholder="¥˙¬Î∆¨∂Œ∑÷◊È±ÍÃ‚" required="true" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="se-id">ID:</label>
+						<div class="controls">
+							<input type="text" id="se-id" placeholder="¥˙¬Î∆¨∂Œ∑÷◊Èid" required="true" />
+						</div>
+					</div>
+  				</form>
+  			</div>
+  			<div class="modal-footer">
+  				<a href="#" class="btn btn-close">πÿ±’</a>
+  				<a href="#" class="btn btn-primary">Ã·Ωª</a>
+  			</div>
+  		</div>
+  		
+  		<script type="text/html" id="temp-snippet-edit">
+  			<div class="control-group">
+				<label class="control-label" for="sp-name">Name:</label>
+				<div class="controls">
+					<input type="text" id="sp-name" placeholder="¥˙¬Î∆¨∂Œ±ÍÃ‚" data-bind="value: name" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Html:</label>
+				<div class="controls">
+					<textarea data-bind="value: html" data-mode="xml" data-key="html"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Style:</label>
+				<div class="controls">
+					<textarea data-bind="value: style" data-mode="css" data-key="style"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">script:</label>
+				<div class="controls">
+					<textarea data-bind="value: script" data-mode="javascript" data-key="script"></textarea>
+				</div>
+			</div>
+			<div class="control-group" data-bind="ifnot: _id">
+				<label class="control-label">DocType:</label>
+				<div class="controls">
+					<label class="checkbox control-label">
+						<input type="radio" name="doc-type" id="sp-html" data-bind="checked: doc.docType" value=".html" />
+						html
+					</label>
+					<label class="checkbox control-label">
+						<input type="radio" name="doc-type" id="sp-md" data-bind="checked: doc.docType" value=".md" />
+						md
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Document:</label>
+				<div class="controls">
+					<textarea class="sp-doc" data-bind="value: doc.docContent" data-key="doc.docContent"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="sp-tag">Tag:</label>
+				<div class="controls">
+					<input type="text" id="sp-tag" placeholder="±Í«©√˚≥∆£¨∂∫∫≈∑÷∏Ù" data-bind="value: tags" />
+				</div>
+			</div>
+			<div class="control-group" data-bind="ifnot: _id">
+				<label class="control-label">ViewType:</label>
+				<div class="controls">
+					<label class="checkbox control-label">
+						<input type="radio" name="view-type" id="sp-nor" data-bind="checked: viewType" value="µ•¡–" />
+						µ•¡–
+					</label>
+					<label class="checkbox control-label">
+						<input type="radio" name="view-type" id="sp-col2" data-bind="checked: viewType" value="À´¡–" />
+						À´¡–
+					</label>
+				</div>
+			</div>
+  		</script>
+  		<script type="text/javascript" id="data-model">
+  			window.dataModel = {
+  				'tupian-vertical': {
+  					'name': 'Õº∆¨¥π÷±æ”÷–◊Èº˛',
+  					'list': [
+  						{
+  							'id': '51d2b9fc36831ae81c000001',
+  							'name': '’˝∑Ω–Œ¥π÷±æ”÷–',
+  							'type': 'col-2'
+  						},
+  						{
+  							'id': '51dcf6a0866642101c000017',
+  							'name': '∞´≈÷≥§∑Ω–Œ¥π÷±æ”÷–',
+  							'type': 'col-2'
+  						},
+  						{
+  							'id': '51dcfc8f866642101c00001d',
+  							'name': '∏ﬂ ›≥§∑Ω–Œ¥π÷±æ”÷–',
+  							'type': ''
+  						}
+  					]
+  				}
+  			}
+  		</script>
   	</div>
   </div>
-  <script type="text/javascript" src="http://style.china.alibaba.com/fdevlib/js/fdev-v4/core/fdev-min.js"></script>
   <script type="text/javascript" src="js/codemirror/lib/codemirror.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/css/css.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/xml/xml.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/javascript/javascript.js"></script>
-  <script type="text/javascript" src="js/javascript.js"></script>
-  <script type="text/javascript" src="js/knockout.js"></script>
-  <script type="text/javascript" src="js/content.js"></script>
-  <script type="text/javascript" src="js/wiki.js"></script>
+  <script type="text/javascript" src="js/codemirror/addon/edit/closetag.js"></script>
+  <script type="text/javascript" src="js/codemirror/addon/edit/closebrackets.js"></script>
+  <script type="text/javascript" src="js/lib/handlebars-v1.1.2.js"></script>
+  <script type="text/javascript" src="js/lib/require-min.js"></script>
+  <script type="text/javascript" src="js/snippets.js"></script>
 </body>

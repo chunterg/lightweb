@@ -1,0 +1,95 @@
+/*
+ * @Author      changbin.wangcb
+ * @Date        2013.07.06
+ * @Description animate.css examples
+ */
+
+.content-inner > section > article > h3 {
+    text-align: center;
+}
+.examples {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1) inset;
+    font-size: 0;
+    margin-top: 10px;
+    padding: 10px;
+}
+.examples .example {
+    -moz-box-sizing: border-box;
+    display: inline-block;
+    margin: 1px 0;
+    padding: 0;
+    text-align: left;
+    vertical-align: top;
+    width: 25%;
+}
+.examples .example {
+    background-color: white;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.1), -1px 1px rgba(0, 0, 0, 0.1), 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 100ms linear 0s;
+}
+.examples .example:hover {
+    background-color: #EDFAFA;
+}
+.example h3 {
+    margin-bottom: -20px;
+    padding: 10px 20px 0;
+    text-align: right;
+    color: #507080;
+    font-weight: bold;
+    font-size: 14px;
+    text-rendering: optimizelegibility;
+}
+.example .area {
+    min-height: 32px;
+    min-width: 32px;
+    position: relative;
+}
+.example .area {
+    height: 100px;
+}
+.example .box {
+    background: none repeat scroll 0 0 #505060;
+    border-radius: 1px 1px 1px 1px;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2) inset;
+    height: 32px;
+    left: 50%;
+    margin: -16px 0 0 -16px;
+    opacity: 0.8;
+    position: absolute;
+    top: 50%;
+    width: 32px;
+    z-index: 2;
+}
+.example pre {
+    background-color: transparent;
+    border: 0 none;
+    font-style: italic;
+    text-rendering: optimizelegibility;
+    text-shadow: 1px 1px 0 rgba(250, 250, 250, 0.9);
+    white-space: pre-wrap;
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+}
+.example pre b {
+    background: none repeat scroll 0 0 #FAFAD0;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 1px 2px;
+}
+.example .code {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top: 1px solid #CCCCCC;
+    box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.07) inset;
+    padding: 0 20px;
+    height: 60px;
+}
+.example .code h4 {
+    font-weight: bold;
+}
