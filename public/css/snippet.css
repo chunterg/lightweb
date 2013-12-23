@@ -111,21 +111,24 @@
     color: #fff;
 }
 
-#snippet-edit {
+.modal {
     position: static;
     margin-left: 0;
     width: 800px;
 }
-#snippet-edit .form-horizontal .control-label {
+#section-add {
+    width: 400px;
+}
+.modal .form-horizontal .control-label {
   width: 70px;
 }
-#snippet-edit .form-horizontal .controls {
+.modal .form-horizontal .controls {
   margin-left: 80px;
 }
-#snippet-edit .form-horizontal .controls:first-child {
+.modal .form-horizontal .controls:first-child {
   *padding-left: 80px;
 }
-.checkbox input[type="radio"],
-.checkbox input[type="checkbox"] {
+.modal .checkbox input[type="radio"],
+.modal .checkbox input[type="checkbox"] {
     margin: 0;
 }

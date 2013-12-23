@@ -115,10 +115,10 @@
 		                <li class="f-tab-t" data-bind="if: style">CSS</li>
 		            </ul>
 		            <div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
-		            	<textarea class="mode-html" data-key="html" data-mode="xml" data-bind="text: html"></textarea>
+		            	<textarea data-key="html" data-mode="xml" data-bind="value: html"></textarea>
 		            </div>
 		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
-		            	<textarea class="mode-css" data-key="style" data-mode="css" data-bind="text: style"></textarea>
+		            	<textarea data-key="style" data-mode="css" data-bind="value: style"></textarea>
 		            </div>
 		        </div>
 			</script>
@@ -140,10 +140,10 @@
 						<!--/ko-->
 					</div>
 					<div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
-		            	<textarea class="mode-html" data-key="html" data-mode="xml" data-bind="text: html"></textarea>
+		            	<textarea data-key="html" data-mode="xml" data-bind="value: html"></textarea>
 		            </div>
 		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
-		            	<textarea class="mode-css" data-key="style" data-mode="css" data-bind="text: style"></textarea>
+		            	<textarea data-key="style" data-mode="css" data-bind="value: style"></textarea>
 		            </div>
 				</div>
 			</script>
@@ -210,30 +210,30 @@
 			<div class="control-group">
 				<label class="control-label">Html:</label>
 				<div class="controls">
-					<textarea class="sp-html" data-bind="text: html" data-mode="xml" data-key="html"></textarea>
+					<textarea data-bind="value: html" data-mode="xml" data-key="html"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label">Style:</label>
 				<div class="controls">
-					<textarea class="sp-style" data-bind="text: style" data-mode="css" data-key="style"></textarea>
+					<textarea data-bind="value: style" data-mode="css" data-key="style"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label">script:</label>
 				<div class="controls">
-					<textarea class="sp-script" data-bind="text: script" data-mode="javascript" data-key="script"></textarea>
+					<textarea data-bind="value: script" data-mode="javascript" data-key="script"></textarea>
 				</div>
 			</div>
 			<div class="control-group" data-bind="ifnot: _id">
 				<label class="control-label">DocType:</label>
 				<div class="controls">
 					<label class="checkbox control-label">
-						<input type="radio" name="doc-type" id="sp-html" value=".html" />
+						<input type="radio" name="doc-type" id="sp-html" data-bind="checked: doc.docType" value=".html" />
 						html
 					</label>
 					<label class="checkbox control-label">
-						<input type="radio" name="doc-type" id="sp-md" value=".md" />
+						<input type="radio" name="doc-type" id="sp-md" data-bind="checked: doc.docType" value=".md" />
 						md
 					</label>
 				</div>
@@ -241,7 +241,7 @@
 			<div class="control-group">
 				<label class="control-label">Document:</label>
 				<div class="controls">
-					<textarea class="sp-doc" data-bind="text: doc.docContent" data-key="doc.docContent"></textarea>
+					<textarea class="sp-doc" data-bind="value: doc.docContent" data-key="doc.docContent"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
@@ -254,17 +254,17 @@
 				<label class="control-label">ViewType:</label>
 				<div class="controls">
 					<label class="checkbox control-label">
-						<input type="radio" name="view-type" id="sp-nor" value="单列" />
+						<input type="radio" name="view-type" id="sp-nor" data-bind="checked: viewType" value="单列" />
 						单列
 					</label>
 					<label class="checkbox control-label">
-						<input type="radio" name="view-type" id="sp-col2" value="双列" />
+						<input type="radio" name="view-type" id="sp-col2" data-bind="checked: viewType" value="双列" />
 						双列
 					</label>
 				</div>
 			</div>
   		</script>
-  		<script type="text/javascript">
+  		<script type="text/javascript" id="data-model">
   			window.dataModel = {
   				'tupian-vertical': {
   					'name': '图片垂直居中组件',
@@ -282,7 +282,7 @@
   						{
   							'id': '51dcfc8f866642101c00001d',
   							'name': '高瘦长方形垂直居中',
-  							'type': 'col-2'
+  							'type': ''
   						}
   					]
   				}
@@ -294,6 +294,9 @@
   <script type="text/javascript" src="js/codemirror/mode/css/css.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/xml/xml.js"></script>
   <script type="text/javascript" src="js/codemirror/mode/javascript/javascript.js"></script>
+  <script type="text/javascript" src="js/codemirror/addon/edit/closetag.js"></script>
+  <script type="text/javascript" src="js/codemirror/addon/edit/closebrackets.js"></script>
+  <script type="text/javascript" src="js/lib/handlebars-v1.1.2.js"></script>
   <script type="text/javascript" src="js/lib/require-min.js"></script>
   <script type="text/javascript" src="js/snippets.js"></script>
 </body>

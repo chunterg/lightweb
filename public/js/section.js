@@ -4,8 +4,8 @@
  * @Description 页面结构渲染
  */
 
-define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapping'], 
-       function($, ko, template, article, request, sidebar, mapping){
+define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'], 
+       function($, ko, article, request, sidebar, mapping){
     "use strict";
 
     var win = $(window);
@@ -17,8 +17,8 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
     Section.prototype = {
         constructor: Section,
         init: function(data, sTmpl, aTmpl, aData){
-            this.sectionTmpl = sTmpl;
-            this.articleTmpl = aTmpl;
+            this.sectionTmpl = Handlebars.compile(sTmpl);
+            this.articleTmpl = Handlebars.compile(aTmpl);
             this.articleData = aData;
 
             this.render(data, aTmpl);
@@ -27,7 +27,6 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
         },
         /**
          * 渲染
-         * @return {[Array]} codeMirror数组,可以缓存做换肤用
          */
         render: function(data){
             var self = this,
@@ -47,13 +46,13 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
                     list : data[item].list
                 };
 
-                $section = $(template(self.sectionTmpl, section)).appendTo(self.$container);
+                $section = $(self.sectionTmpl(section)).appendTo(self.$container);
 
                 len = section.list.length;
 
                 if( len ){
                     for( var i = 0; i < len; i++ ){
-                        $(template(this.articleTmpl, section.list[i])).insertBefore( $section.find('> footer') );
+                        $(self.articleTmpl(section.list[i])).insertBefore( $section.find('> footer') );
                     }
                 }
             }
@@ -95,28 +94,15 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
 
                             if( resultData ){
 
+                                data = $.extend({}, self.articleData);
                                 data = mapping.fromJS(resultData);
-                                /*data = {
-                                    'name': ko.observable(resultData['name']),
-                                    'html': ko.observable(resultData['html']),
-                                    'style': ko.observable(resultData['style']),
-                                    'script': ko.observable(resultData['script']),
-                                    'tags': ko.observable(resultData['tags']),
-                                    '_v': resultData['_v'],
-                                    '_id': resultData['_id'],
-                                    'viewType': resultData['viewType'],
-                                    'update': ko.observable(resultData['update']),
-                                    'created': resultData['created'],
-                                    'doc': ko.observable(resultData['doc'])
-                                };*/
 
                                 articleItem = article();
+                                Base.articles[_this.data('id')] = articleItem;
                                 mirror = articleItem.render(_this, data);
 
                                 // 缓存
                                 Base.codeMirrors = Base.codeMirrors.concat(mirror);
-                                Base.articles[_this.data('id')] = articleItem;
-
                             }
 
                         });
@@ -138,8 +124,9 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
         bind: function(){
             var self         = this,
                 $snippetEdit = $('#snippet-edit'),
+                $sectionAdd  = $('#section-add'),
                 $form        = $snippetEdit.find('div.modal-body form'),
-                data, id,
+                id,
                 mirrors      = {};
 
             // 编辑代码片段
@@ -150,14 +137,13 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
                 e.preventDefault();
 
                 id = _this.data('id');
-                data = Base.articles[id].data;
-                ko.applyBindings(data, $form[0]);
+                ko.applyBindings(Base.articles[id].data, $form[0]);
                 $snippetEdit.data('id', id);
 
                 $.use('ui-dialog', function(){
 
                     $snippetEdit.dialog({
-                        fixed  : true,
+                        // fixed  : true,
                         center : true,
                         open   : function(){
 
@@ -168,10 +154,13 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
                                 var _this = $(elem);
 
                                 mirrors[_this.data('key')] = CodeMirror.fromTextArea(this, {
-                                    lineNumbers  : true,
-                                    theme        : Base.theme,
-                                    mode         : $(this).data('mode'),
-                                    lineWrapping : true
+                                    lineNumbers       : true,
+                                    theme             : Base.theme,
+                                    mode              : $(this).data('mode'),
+                                    indentUnit        : 4,
+                                    lineWrapping      : true,
+                                    autoCloseTags     : true,
+                                    autoCloseBrackets : true
                                 });
 
                             });
@@ -189,15 +178,14 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
 
                 e.preventDefault();
 
-                data = mapping.fromJS(self.articleData);
-                self.newData = data;
-                ko.applyBindings(data, $form[0]);
+                self.newData = $.extend(true, {}, self.articleData);
+                ko.applyBindings(self.newData, $form[0]);
                 $snippetEdit.data('id', '').data('sectionIdx', idx);
 
                 $.use('ui-dialog', function(){
 
                     $snippetEdit.dialog({
-                        fixed: true,
+                        // fixed: true,
                         center: true,
                         open: function(){
 
@@ -208,10 +196,13 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
                                 var _this = $(elem);
 
                                 mirrors[_this.data('key')] = CodeMirror.fromTextArea(this, {
-                                    lineNumbers  : true,
-                                    theme        : Base.theme,
-                                    mode         : $(this).data('mode'),
-                                    lineWrapping : true
+                                    llineNumbers       : true,
+                                    theme             : Base.theme,
+                                    mode              : $(this).data('mode'),
+                                    indentUnit        : 4,
+                                    lineWrapping      : true,
+                                    autoCloseTags     : true,
+                                    autoCloseBrackets : true
                                 });
 
                             });
@@ -223,11 +214,11 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
             });
             
             // 关闭
-            $('button.close, a.btn-close', $snippetEdit).click(function(e){
+            $('div.modal button.close, div.modal a.btn-close').click(function(e){
 
                 e.preventDefault();
 
-                $snippetEdit.dialog('close');
+                $(this).closest('div.modal').dialog('close');
 
             });
 
@@ -245,73 +236,47 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
 
                     // 编辑
                     articleItem = Base.articles[id];
-                    param = mapping.toJS(articleItem.data);
-
-                    param = form2obj(param);
+                    save();
 
                     // TODO:如果片段的名字改了，要同步改sidebar和isAdd
-                    articleItem.edit(dtd, param, function(){
-                        var key,
-                            keys,
-                            obj;
-
-                        for( var item in articleItem.mirrors ){
-
-                            key = item;
-
-                            if( key.indexOf('.') > -1 ){
-                                keys = key.split('.');
-
-                                for( var i = 0, l = keys.length - 1; i < l; i++ ){
-                                    obj = param[keys[i]];
-                                }
-
-                                key = keys[l];
-                            }else{
-                                obj = param;
-                            }
-
-                            articleItem.mirrors[item].setValue(obj[key]);
-                        }   
-
+                    articleItem.edit(dtd, function(){
+                        if( articleItem.data.oldName !== articleItem.data.name() ){
+                            isAdd(true);
+                        }
                     });
 
                 }else{
 
                     // 添加
                     articleItem = article();
-                    param = mapping.toJS(self.newData);
 
-                    param = form2obj(param);
-
-                    articleItem.add(dtd, data, /*$snippetEdit.data('sectionIdx')*/ function(result){
-                        var article, $article, rdtd, 
+                    articleItem.add(dtd, self.newData, function(result){
+                        var article, $article, 
                             id = result._id, 
                             obj,
                             mirror,
                             $section;
                 
                         self.newData['_id'](id);
-                        self.newData = mapping.fromJS(param);
+                        save();
 
                         // 新建article
-                        rdtd = $.Deferred();
                         obj = {
                             'id': id,
                             'name': self.newData['name'](),
-                            'type': self.newData['viewType']() == '单列' ? 'n' : 'col-2'
+                            'type': self.newData['viewType']() == '单列' ? '' : 'col-2'
                         };
 
                         $section = $('#content div.content-inner > section').eq($snippetEdit.data('sectionIdx'));
-                        $article = $(template(self.articleTmpl, obj)).insertBefore( $section.find('footer') );
+                        $article = $(self.articleTmpl(obj)).insertBefore( $section.find('footer') );
 
                         // 往里面加值
                         $article.data('id', id);
-                        Base.codeMirrors = Base.codeMirrors.concat(mirror);
-                        Base.articles[id] = articleItem;
 
+                        Base.articles[id] = articleItem;
                         mirror = articleItem.render($article, self.newData);
                         dataModel[$section.attr('id')].list.push(obj);
+                        Base.codeMirrors = Base.codeMirrors.concat(mirror);
 
                         // 改变isAdd
                         isAdd(true);
@@ -321,66 +286,81 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
 
                 dtd.done(function(){
 
+                    mirrors = {};
                     $snippetEdit.dialog('close');
 
                 });
             });
-            
-            // 将form转换为对象
-            function form2obj(data){
-                var $ipts = $form.find('input[data-key]'),
-                    $txts = $form.find('textarea[data-key]');
 
-                $ipts.each(function(idx, ele){
-                    var _this = $(ele),
-                        key   = _this.data('key'),
-                        type  = _this.attr('type'),
-                        keys  = [],
-                        obj   = data;
+            // 新增分组
+            self.$container.on('click', 'section > footer > div.action a.add', function(e){
+                var $section = $(this).closest('section'),
+                    idx = self.$container.find('> section').index($section);
 
-                    if( key.indexOf('.') > -1 ){
-                        keys = key.split('.');
+                e.preventDefault();
 
-                        for( var i = 0, l = keys.length - 1; i < l; i++ ){
-                            obj = obj[keys[i]];
-                        }
+                $sectionAdd.data('sectionIdx', idx);
 
-                        key = keys[l];
-                    }
+                $.use('ui-dialog', function(){
 
-                    switch(type){
-                        case 'text':
-                            obj[key] = _this.val();
-                            break;
-                        case 'radio':
-                        case 'checkbox':
-                            _this.is(':checked') && (obj[key] = _this.val()); 
-                            break;
-                        default:
-                            break;
-                    };
+                    $sectionAdd.dialog({
+                        // fixed: true,
+                        center: true
+                    });
+
                 });
+            });
 
-                $txts.each(function(idx, ele){
-                    var _this = $(ele),
-                        key = _this.data('key'),
-                        keys = [],
-                        obj = data;
+            // 新增分组提交
+            $('a.btn-primary', $sectionAdd).click(function(e){
+                var $name = $('#se-name'),
+                    $id = $('#se-id'),
+                    name = $name.val().trim(),
+                    id = $id.val().trim(),
+                    sectionObj = {},
+                    section = null,
+                    $section;
 
-                    if( key.indexOf('.') > -1 ){
-                        keys = key.split('.');
+                e.preventDefault();
 
-                        for( var i = 0, l = keys.length - 1; i < l; i++ ){
-                            obj = obj[keys[i]];
-                        }
+                if( name === '' ){
+                    $name.val(name).focus();
 
-                        key = keys[l];
-                    }
+                    return;
+                }
 
-                    obj[key] = mirrors[_this.data('key')].getValue();
-                });
+                if( id === '' ){
+                    $id.val(id).focus();
 
-                return data;
+                    return;
+                }
+
+                sectionObj.name = name;
+                sectionObj.list = [];
+
+                dataModel[id] = sectionObj;
+                
+                section = {
+                    id   : id,
+                    name : name,
+                    list : []
+                };
+
+                $section = $(self.sectionTmpl(section)).insertAfter(self.$container.find('> section').eq($sectionAdd.data('sectionIdx')));
+
+                isAdd(true);
+
+                $sectionAdd.dialog('close');
+            });
+
+            // 保存codemirror的值
+            function save(){
+                var key;
+
+                for( key in mirrors ){
+                    mirrors[key].save();
+                    $(mirrors[key].getTextArea()).trigger('change');
+                }
             }
         }
     };
@@ -404,7 +384,7 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
 
             if( Base.isAdd ){
                 
-                return "正在保存新增的内容，请稍候！";
+                return "确认不保存编辑的内容吗？";
 
             }
 
@@ -420,7 +400,7 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
             
             // 读取文档html
             dtd = $.Deferred();
-            request(location.pathname, null, dtd, 'html');
+            request(location.pathname, {}, dtd, 'html');
             $.when(dtd).done(function(result){
 
                 // 正则替换sidebar
@@ -430,7 +410,7 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
                     adtd, param;
 
                 html = result;
-                html = html.replace(reg, "$1" + JSON.stringify(dataModel) + "$2");console.log(JSON.stringify(dataModel),html);
+                html = html.replace(reg, "$1" + 'window.dataModel =' + JSON.stringify(dataModel) + ';' + "$2");
 
                 // 保存新的文档
                 adtd = $.Deferred();
@@ -441,17 +421,17 @@ define(['jquery', 'knockout', 'template', 'article', 'request', 'sidebar', 'mapp
                     'path': location.pathname
                 };
 
-                /*request('/blog/do', param, adtd, 'html' ,'post');
+                request('/blog/do', param, adtd, 'html' ,'post');
                 $.when(adtd).done(function(result){
 
                     isAdd(false);
 
                 }).fail(function(){
 
-                });*/
+                });
 
             }).fail(function(){
-
+                console.log('error');
             });
         });
     }

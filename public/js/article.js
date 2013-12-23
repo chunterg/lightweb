@@ -17,13 +17,17 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
             this.options = options;
         },
         // 编辑
-        edit: function(dtd, data, callback){
+        edit: function(dtd, callback){
             var self  = this,
+                data = {},
                 param = {
                     _ajax  : true,
                     action : 'edit'
                 };
 
+            // $.extend(true, param, data);
+
+            data = mapping.toJS(self.data);
             $.extend(true, param, data);
 
             // ajax
@@ -31,8 +35,13 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
 
             // 保存成功后，更新codeMirror里的值
             $.when(dtd).done(function(result){  
+                var key, mirror;
+                
+                for( key in self.mirrors ){
+                    mirror = self.mirrors[key];
+                    mirror.setValue(Base.getProp(self.data, key)());
+                }
 
-                self.data = mapping.fromJS(data);
                 callback();
 
             });
@@ -45,20 +54,8 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
                     action : 'add'
                 };
 
+            data = mapping.toJS(data);
             $.extend(true, param, data);
-
-            /*param = {
-                '_ajax': true,
-                'action': 'add',
-                '_id': data['_id'],
-                'name': data['name'](),
-                'html': data['html'](),
-                'style': data['style'](),
-                'script': data['script'](),
-                'tags': data['tags'](),
-                'viewType': data['viewType'](),
-                'doc': data['doc']()
-            };*/
 
             request('/snippet/do', param, dtd, 'json' ,'post');
 
@@ -78,6 +75,7 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
                 $txts;
 
             self.elem = elem;
+            data.oldName = data.name();
             self.data = data;
             self.mirrors = {};
 
@@ -86,29 +84,24 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
             
             $txts.each(function(idx, ele){
                 var _this  = $(ele),
-                    key    = _this.data('key'),
-                    oldKey = key,
-                    keys   = [],
-                    obj    = data;
-
-                    if( key.indexOf('.') > -1 ){
-                        keys = key.split('.');
-
-                        for( var i = 0, l = keys.length - 1; i < l; i++ ){
-                            obj = obj[keys[i]];
-                        }
-
-                        key = keys[l];
-                    }
+                    key    = _this.data('key');
 
                     codeMirrors[idx] = CodeMirror.fromTextArea(_this[0], {
-                        lineNumbers  : true,
-                        theme        : Base.theme,
-                        mode         : _this.data('mode'),
-                        lineWrapping : true
+                        lineNumbers       : true,
+                        theme             : Base.theme,
+                        mode              : _this.data('mode'),
+                        indentUnit        : 4,
+                        lineWrapping      : true,
+                        autoCloseTags     : true,
+                        autoCloseBrackets : true
                     });
 
-                    self.mirrors[oldKey] = codeMirrors[idx];
+                    codeMirrors[idx].on('blur', function(cm, obj){
+                        cm.save();
+                        $(cm.getTextArea()).trigger('change');
+                    });
+
+                    self.mirrors[key] = codeMirrors[idx];
             });
 
             elem.css('height', 'auto');
@@ -126,24 +119,15 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
                             $tabB = _this.find('div.f-tab-b').eq(data.index),
                             article = Base.articles[_this.data('id')],
                             key = $tabB.data('key'),
-                            oldKey = key,
-                            keys = [],
-                            obj = article.data;
+                            mirror = null;
 
                         // 如果codeMirror isHidden，textarea的值更新，codeMirror还是不能更新，所以这里当codeMirror show时手动更新其值
-                        if( article ){
+                        if( article && key ){
 
-                            if( key.indexOf('.') > -1 ){
-                                keys = key.split('.');
-
-                                for( var i = 0, l = keys.length - 1; i < l; i++ ){
-                                    obj = obj[keys[i]];
-                                }
-
-                                key = keys[l];
-                            }
-
-                            article.mirrors[oldKey] && article.mirrors[oldKey].setValue(obj[key]());
+                            mirror = article.mirrors[key];
+                            mirror.save();
+                            $(mirror.getTextArea()).trigger('change');
+                            mirror && mirror.setValue(mirror.getTextArea().value);
 
                         }
 

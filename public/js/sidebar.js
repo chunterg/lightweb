@@ -18,7 +18,6 @@ define(['jquery'], function($){
         init: function(elem){
             this.container = $(elem);
             this.navs = [];
-            this.map = {};
             this.render();
             this.bindEvent();
             this.setHeight();
@@ -80,7 +79,7 @@ define(['jquery'], function($){
          * @param  {Deferred}       dtd  
          * @return {jQuery Element}      新增的article节点
          */
-        add: function(idx, data, dtd){
+        add: function(idx, data){
             var self = this,
                 $parent = this.container.find('> ul').eq(idx),
                 $section = $('#content div.content-inner > section').eq(idx),
@@ -93,13 +92,6 @@ define(['jquery'], function($){
             $('<a>').attr('href', '#a-' + data.id).attr('data-id', data.id).attr('data-type', data.type).text(data.name).appendTo($li);
             $li.appendTo($parent.find('ul'));
 
-            // 新增article
-            $article = $( _template( tmpl, {
-                'id': data.id,
-                'name': data.name,
-                'type': data.type
-            } ) ).insertBefore( $section.find('> footer') );
-
             // 往navs数组中添加新节点
             idx = self.navs.indexOf($li.prev('li').find('a').attr('href'));
             pArr = self.navs.slice(0, idx + 1);
@@ -108,7 +100,6 @@ define(['jquery'], function($){
             self.navs = pArr.concat(nArr);
             
             self.setHeight();
-            dtd.resolve($article);
         },
         // 定位事件
         bindEvent: function(){
@@ -129,15 +120,27 @@ define(['jquery'], function($){
             // 侧边导航点击事件
             container.on('click', 'a', function(e){
 
-                var _this = $(this);
+                var _this = $(this), top;
 
-                // container.find('a').removeClass('current');
-                // container.find('li.nav-parent').removeClass('current');
+                e.preventDefault();
+
                 currentAnchor.removeClass('current').closest('li.nav-parent').removeClass('current');
                 _this.addClass('current').closest('li.nav-parent').addClass('current');
 
                 currentAnchor = _this;
                 currentNav = $(currentAnchor.attr('href'));
+                top = currentNav.offset().top - 70;
+                top = top > 0 ? top : 0;
+
+                $.use('ui-scrollto', function(){
+                    
+                    win.scrollTo(top , {
+                        duration: 300
+                    });
+
+                });
+
+                // location.hash = location.hash.replace(/#([\s\S]*)/g, currentAnchor.attr('href'));
 
                 if( !self.isWrap() ){
 
@@ -146,6 +149,8 @@ define(['jquery'], function($){
                 }
 
             });
+
+            currentAnchor.trigger('click');
 
             // 滚动事件
             win.on('scroll', function(){

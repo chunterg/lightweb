@@ -94,7 +94,8 @@ var blogController = function(app, mongoose, cfg) {
         }  
         //文件写入
             var buffer = new Buffer(req.body.content.length);
-            content = iconv.encode(req.body.content, cfg.encode);
+            content = iconv.decode(req.body.content, cfg.encode);
+            console.log(content)
             fs.writeFile(cfg.root+filePath,content ,function(e) {
                 if (e) throw e;
                 //fs.closeSync(fd);
