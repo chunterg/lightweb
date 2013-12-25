@@ -1,6 +1,8 @@
 var mongoose = require('../node_modules/mongoose');
 var Schema = mongoose.Schema;
 var Snippets = new Schema({
+        typeName: String,
+        typeId:String,
         name: String,
         style:String,
         html:String,
@@ -27,6 +29,5 @@ var snippetTags = new Schema({
         count:Number,
         snippetIds:Array
        })
-
 exports.Snippets = mongoose.model('Snippets', Snippets);
 exports.Tags = mongoose.model('Tags', snippetTags);

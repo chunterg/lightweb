@@ -1,4 +1,5 @@
 var SnippetsModel = require('../models/snippetsModel');
+var _ = require('underscore');
 var snippetsController = function (app,mongoose,cfg) {
     //增加新片断
     app.get(cfg.siteDirectory+'snippet/add', function(req, res, next) {
@@ -58,6 +59,8 @@ var snippetsController = function (app,mongoose,cfg) {
         var tags = req.body.tag+'';
         var _d = new Date();
         var dataReq = {
+                    typeName: req.body.typeName,
+                    typeId:req.body.typeId,
                     name:req.body.name||'',
                     html:req.body.html||'',
                     style:req.body.style||'',
@@ -75,7 +78,8 @@ var snippetsController = function (app,mongoose,cfg) {
                         name:'chunterg',
                         date:_d.getTime()
                     }
-            var snippetsModel = new SnippetsModel.Snippets(dataReq)
+            var snippetsModel = new SnippetsModel.Snippets(dataReq);
+
         }
         if(tags.length>0){
             var tagModel = SnippetsModel.Tags;
@@ -106,6 +110,7 @@ var snippetsController = function (app,mongoose,cfg) {
             snippetsModel.save( function( err, data ){
                     if(err) throw err;
                     console.log('create snippet '+data.name+' success');
+
                     if(isAjax){
                         res.json(data)
                     }else{
@@ -145,6 +150,52 @@ var snippetsController = function (app,mongoose,cfg) {
             res.type('application/json');
             res_data = callback?callback + '(' + JSON.stringify(snippet) + ')' : snippet;
             res.send(res_data)
+            res.end();
+
+            // req.query.callback=callback;
+            // res.jsonp(snippet)
+       })
+    });
+
+    app.get(cfg.siteDirectory+'snippet/getSnippetList', function(req, res, next) {
+
+       var query = req.query,callback='';
+       if(req.query.callback){
+            callback=query.callback;
+            delete query.callback;
+       } 
+       SnippetsModel.Snippets.find(query,function(err,snippets){
+            if(err) res.jsonp([])
+            res.charset = 'utf-8';
+            res.type('application/javascript');
+            
+            var snippetType = [];
+            var resData = {};
+            // 获取片断类型
+            snippets.forEach(function(d){
+                if(d.typeId){
+                    snippetType.push(d.typeId+'|'+d.typeName);
+                }
+            });
+            snippetType = _.uniq(snippetType);
+            // 初始化返回值
+            snippetType.forEach(function(d){
+                var typeData = d.split('|'); 
+                resData[typeData[0]] = {name:typeData[1],list:[]};
+            })
+
+            snippets.forEach(function(d){
+                if(resData[d.typeId]){
+                    resData[d.typeId]["list"].push({
+                        id:d._id,
+                        name:d.name,
+                        type:d.viewType
+                    })
+                }
+            });
+            resData = callback?callback + '(' + JSON.stringify(resData) + ')' : resData;
+            // res.jsonp(resData)
+            res.send(resData);
             res.end();
 
             // req.query.callback=callback;
