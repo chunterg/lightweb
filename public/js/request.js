@@ -21,7 +21,14 @@ define(['jquery'], function($){
             data: param,
             type: method || 'get',
             success: function(res){
-                dtd.resolve(res);
+                if( res.status && res.status === 'fail' ){
+                    if( res.message && res.message === 'need login first' ){
+                        location.href = location.protocol + '//' + location.host + '/user/login';
+                        dtd.reject(res.message);
+                    }
+                }else{
+                    dtd.resolve(res);
+                }
             },  
             error: function(){
                 dtd.reject();
