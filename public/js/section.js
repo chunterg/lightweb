@@ -23,7 +23,7 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
 
             this.render(data, aTmpl);
             this.bind();
-            pageClose();
+            // pageClose();
         },
         /**
          * 渲染
@@ -162,7 +162,6 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
                                     autoCloseTags     : true,
                                     autoCloseBrackets : true
                                 });
-
                             });
 
                         }
@@ -174,11 +173,17 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
             // 新增代码片段
             self.$container.on('click', 'section > header > div.action a.add', function(e){
                 var _this   = $(this).closest('section'),
-                    idx     = self.$container.find('> section').index(_this);
+                    idx     = self.$container.find('> section').index(_this),
+                    sectionObj = null;
 
                 e.preventDefault();
 
-                self.newData = $.extend(true, {}, self.articleData);
+                sectionObj = {
+                    typeId: _this.attr('id'),
+                    typeName: _this.find('header h2').text()
+                };
+
+                self.newData = $.extend(true, {}, self.articleData, sectionObj);
                 ko.applyBindings(self.newData, $form[0]);
                 $snippetEdit.data('id', '').data('sectionIdx', idx);
 
@@ -240,15 +245,16 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
 
                     // TODO:如果片段的名字改了，要同步改sidebar和isAdd
                     articleItem.edit(dtd, function(){
-                        if( articleItem.data.oldName !== articleItem.data.name() ){
+                        /*if( articleItem.data.oldName !== articleItem.data.name() ){
                             isAdd(true);
-                        }
+                        }*/
                     });
 
                 }else{
 
                     // 添加
                     articleItem = article();
+                    save();
 
                     articleItem.add(dtd, self.newData, function(result){
                         var article, $article, 
@@ -258,13 +264,12 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
                             $section;
                 
                         self.newData['_id'](id);
-                        save();
 
                         // 新建article
                         obj = {
-                            'id': id,
+                            '_id': id,
                             'name': self.newData['name'](),
-                            'type': self.newData['viewType']() == '单列' ? '' : 'col-2'
+                            'viewType': self.newData['viewType']()
                         };
 
                         $section = $('#content div.content-inner > section').eq($snippetEdit.data('sectionIdx'));
@@ -275,11 +280,11 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
 
                         Base.articles[id] = articleItem;
                         mirror = articleItem.render($article, self.newData);
-                        dataModel[$section.attr('id')].list.push(obj);
+                        // dataModel[$section.attr('id')].list.push(obj);
                         Base.codeMirrors = Base.codeMirrors.concat(mirror);
 
                         // 改变isAdd
-                        isAdd(true);
+                        // isAdd(true);
                     });
 
                 }
@@ -338,7 +343,7 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
                 sectionObj.name = name;
                 sectionObj.list = [];
 
-                dataModel[id] = sectionObj;
+                // dataModel[id] = sectionObj;
                 
                 section = {
                     id   : id,
@@ -348,7 +353,7 @@ define(['jquery', 'knockout', 'article', 'request', 'sidebar', 'mapping'],
 
                 $section = $(self.sectionTmpl(section)).insertAfter(self.$container.find('> section').eq($sectionAdd.data('sectionIdx')));
 
-                isAdd(true);
+                // isAdd(true);
 
                 $sectionAdd.dialog('close');
             });

@@ -15,7 +15,7 @@ require.config({
 	enforceDefine: true
 });
 
-require(['jquery', 'header', 'section', 'knockout'], function($, header, section, ko){
+require(['jquery', 'header', 'section', 'knockout', 'request'], function($, header, section, ko, request){
 	"use strict";
 
 	var sectionTmpl =  '<section id="{{id}}">\
@@ -32,10 +32,10 @@ require(['jquery', 'header', 'section', 'knockout'], function($, header, section
 						    </footer>\
 						</section>',
 		// TODO: 单列的情况还未支持
-		articleTmpl =  '<article class="code-mirror {{type}}" id="a-{{id}}" data-id="{{id}}">\
+		articleTmpl =  '<article class="code-mirror {{viewType}}" id="a-{{_id}}" data-id="{{_id}}">\
 		                    <h3 data-bind="text: name">{{name}}</h3>\
 		                    <a href="#" class="edit"><i class="icon-edit"></i>edit</a>\
-		                    {{#if type}}\
+		                    {{#if viewType}}\
 		                    	<!--ko template: {name: "temp-article-col-2"}--><!--/ko-->\
 		                    {{else}}\
 								<!--ko template: {name: "temp-article-n"}--><!--/ko-->\
@@ -49,7 +49,7 @@ require(['jquery', 'header', 'section', 'knockout'], function($, header, section
 			"style"    : ko.observable(''),
 			"script"   : ko.observable(''),
 			"tags"     : ko.observable(''),
-			"viewType" : ko.observable('双列'),
+			"viewType" : ko.observable('col-2'),
             "doc"	   : {
 				"docContent" : ko.observable(''),
 				"docType"    : ko.observable('.md')
@@ -58,7 +58,13 @@ require(['jquery', 'header', 'section', 'knockout'], function($, header, section
 		sectionItem;
 
 	$(function(){
+		var dtd = $.Deferred();
+
 		header();
-		sectionItem = section(dataModel, sectionTmpl, articleTmpl, articleData);
+		request('/snippet/getSnippetList', {}, dtd);
+
+		$.when(dtd).done(function(result){
+			sectionItem = section(result, sectionTmpl, articleTmpl, articleData);
+		});
 	});
 });  	

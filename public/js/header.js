@@ -4,7 +4,7 @@
  * @Description 头部
  */
 
-define(['jquery', 'module', 'knockout'], function($, module, ko){
+define(['jquery', 'module'/*, 'knockout'*/], function($, module/*, ko*/){
     return function(){
         var container = $('#header'),
             dropdowns = $('nav li.dropdown', container);
@@ -24,7 +24,7 @@ define(['jquery', 'module', 'knockout'], function($, module, ko){
             return obj;
         }
 
-        Base.observable = function(obj){
+        /*Base.observable = function(obj){
             var key, item,
                 observableObj = {};
 
@@ -41,7 +41,7 @@ define(['jquery', 'module', 'knockout'], function($, module, ko){
             }
 
             return observableObj;
-        }
+        }*/
 
         // dropdown事件
         $('nav', container).on('click.nav-dropdown', 'li.dropdown>a', function(e){

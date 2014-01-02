@@ -187,9 +187,9 @@ var snippetsController = function (app,mongoose,cfg) {
             snippets.forEach(function(d){
                 if(resData[d.typeId]){
                     resData[d.typeId]["list"].push({
-                        id:d._id,
+                        _id:d._id,
                         name:d.name,
-                        type:d.viewType
+                        viewType:d.viewType
                     })
                 }
             });

@@ -75,7 +75,7 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
                 $txts;
 
             self.elem = elem;
-            data.oldName = data.name();
+            // data.oldName = data.name();
             self.data = data;
             self.mirrors = {};
 
@@ -87,16 +87,24 @@ define(['jquery', 'knockout', 'request', 'mapping'], function($, ko, request, ma
                     key    = _this.data('key');
 
                     codeMirrors[idx] = CodeMirror.fromTextArea(_this[0], {
-                        lineNumbers       : true,
-                        theme             : Base.theme,
-                        mode              : _this.data('mode'),
-                        indentUnit        : 4,
-                        lineWrapping      : true,
-                        autoCloseTags     : true,
-                        autoCloseBrackets : true
+                        lineNumbers  : true,
+                        theme        : Base.theme,
+                        mode         : _this.data('mode'),
+                        indentUnit   : 4,
+                        lineWrapping : true,
+                        readOnly     : true
+                    });
+
+                    codeMirrors[idx].on('focus', function(cm, obj){
+                        cm.setOption('readOnly', false);
+                        cm.setOption('autoCloseTags', true);
+                        cm.setOption('autoCloseBrackets', true);
                     });
 
                     codeMirrors[idx].on('blur', function(cm, obj){
+                        cm.setOption('readOnly', true);
+                        cm.setOption('autoCloseTags', false);
+                        cm.setOption('autoCloseBrackets', false);
                         cm.save();
                         $(cm.getTextArea()).trigger('change');
                     });

@@ -41,23 +41,29 @@
 		  				<li>
 		  					<a href="index.html" title="首页">首页</a>
 		  				</li>
-		  				<li>
+		  				<!--li>
 		  					<a href="framework.html" title="基本框架">基本框架</a>
-		  				</li>
-		  				<li>
+		  				</li-->
+		  				<li class="current">
 		  					<a href="snippets.html" title="代码片段">代码片段</a>
 		  				</li>
-		  				<li class="current">
+		  				<li>
 		  					<a href="components.html" title="组件">组件</a>
 		  				</li>
-		  				<li>
+		  				<!--li>
 		  					<a href="module.html" title="模块">模块</a>
 		  				</li>
 		  				<li>
 		  					<a href="rule.html" title="编码规范">编码规范</a>
-		  				</li>
+		  				</li-->
 		              	<li>
 		                	<a href="lesson.html" title="前端学习">前端学习</a>
+		              	</li>
+		              	<li>
+		              		<a href="design.html" title="题图动画">题图动画</a>
+		              	</li>
+		              	<li>
+		              		<a href="blog/animate.html" title="Animate.css">Animate.css</a>
 		              	</li>
 		  			</ul>
 	  			</nav>
@@ -111,15 +117,23 @@
 		        </div>
 		        <div class="block-main">
 		            <ul class="tab-trigger unstyled">
-		                <li class="f-tab-t" data-bind="if: html">HTML</li>
-		                <li class="f-tab-t" data-bind="if: style">CSS</li>
+		            	<!--ko if: html-->
+		                <li class="f-tab-t">HTML</li>
+		                <!--/ko-->
+		                <!--ko if: style-->
+		                <li class="f-tab-t">CSS</li>
+		                <!--/ko-->
 		            </ul>
-		            <div class="f-tab-b" data-mode="html" data-key="html" data-bind="if: html">
+		            <!--ko if: html-->
+		            <div class="f-tab-b" data-mode="html" data-key="html">
 		            	<textarea data-key="html" data-mode="xml" data-bind="value: html"></textarea>
 		            </div>
-		            <div class="f-tab-b" data-mode="css" data-key="style" data-bind="if: style">
+		            <!--/ko-->
+		            <!--ko if: style-->
+		            <div class="f-tab-b" data-mode="css" data-key="style">
 		            	<textarea data-key="style" data-mode="css" data-bind="value: style"></textarea>
 		            </div>
+		            <!--/ko-->
 		        </div>
 			</script>
 			<script type="text/html" id="temp-article-n">
@@ -254,18 +268,18 @@
 				<label class="control-label">ViewType:</label>
 				<div class="controls">
 					<label class="checkbox control-label">
-						<input type="radio" name="view-type" id="sp-nor" data-bind="checked: viewType" value="单列" />
+						<input type="radio" name="view-type" id="sp-nor" data-bind="checked: viewType" value="" />
 						单列
 					</label>
 					<label class="checkbox control-label">
-						<input type="radio" name="view-type" id="sp-col2" data-bind="checked: viewType" value="双列" />
+						<input type="radio" name="view-type" id="sp-col2" data-bind="checked: viewType" value="col-2" />
 						双列
 					</label>
 				</div>
 			</div>
   		</script>
   		<script type="text/javascript" id="data-model">
-  			window.dataModel = {
+  			/*window.dataModel = {
   				'tupian-vertical': {
   					'name': '图片垂直居中组件',
   					'list': [
@@ -286,7 +300,7 @@
   						}
   					]
   				}
-  			}
+  			}*/
   		</script>
   	</div>
   </div>
