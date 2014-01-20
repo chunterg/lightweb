@@ -1,6 +1,6 @@
 {
 	"port":88,
-	"root":"H:/github/lightweb/public/",
+	"root":"D:/static/lightweb/public/",
 	//"siteDirectory":"/lightweb/",
 	"siteDirectory":"/",
 	//"blogRoot":"/lightweb/blog/",

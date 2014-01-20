@@ -4,6 +4,12 @@ var iconv = require('../node_modules/iconv-lite');
 SiteController = function (app, mongoose, cfg) {
 
     //include
+    app.get('/', function(req, res, next) {
+        var content = fs.readFileSync(cfg.root + '/index.html');
+        // content = iconv.decode(content, cfg.encode);
+        res.charset = cfg.encode;
+        res.end(content)
+    });
     app.get('*.html|*.htm', function(req, res, next) {
         var content = fs.readFileSync(cfg.root + req.path);
         // content = iconv.decode(content, cfg.encode);

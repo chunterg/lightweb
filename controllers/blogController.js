@@ -76,9 +76,11 @@ var blogController = function(app, mongoose, cfg) {
 
         if(!req.session.user){
             if(isAjax){
-                res.json({status:'fail',message:'need login first'})
+                res.json({status:'fail',message:'need login first'});
+                res.end();
             }else{
                 res.redirect('/user/login');
+                res.end();
             }
         }
 
@@ -95,7 +97,6 @@ var blogController = function(app, mongoose, cfg) {
         //文件写入
             var buffer = new Buffer(req.body.content.length);
             content = iconv.decode(req.body.content, cfg.encode);
-            console.log(content)
             fs.writeFile(cfg.root+filePath,content ,function(e) {
                 if (e) throw e;
                 //fs.closeSync(fd);

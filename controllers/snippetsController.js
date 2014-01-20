@@ -51,9 +51,11 @@ var snippetsController = function (app,mongoose,cfg) {
 
         if(!req.session.user){
             if(isAjax){
-                res.json({status:'fail',message:'need login first'})
+                res.json({status:'fail',message:'need login first'});
+                res.end();
             }else{
                 res.redirect('/user/login');
+                res.end();
             }
         }
         var tags = req.body.tag+'';
@@ -147,7 +149,7 @@ var snippetsController = function (app,mongoose,cfg) {
        SnippetsModel.Snippets.find(query,function(err,snippet){
             //if(err) res.jsonp([])
             res.charset = 'utf-8';
-            res.type('application/json');
+            res.type('text/javascript');
             res_data = callback?callback + '(' + JSON.stringify(snippet) + ')' : snippet;
             res.send(res_data)
             res.end();
@@ -155,6 +157,29 @@ var snippetsController = function (app,mongoose,cfg) {
             // req.query.callback=callback;
             // res.jsonp(snippet)
        })
+    });
+
+    app.get(cfg.siteDirectory+'snippet/deleteSnippet', function(req, res, next) {
+
+       var query = req.query,callback='';
+       if(req.query.callback){
+        callback=query.callback;
+        delete query.callback;
+       } 
+       
+       res.end();
+       return;
+       // if(query){
+       //      SnippetsModel.Snippets.remove(query,function(err){
+       //      if(err) res.jsonp([])
+            
+            
+       //  })
+       // }else{
+       //      res.json({status:'fail',message:'need query argument'});
+       //      res.end();
+       // }
+       
     });
 
     app.get(cfg.siteDirectory+'snippet/getSnippetList', function(req, res, next) {
@@ -167,7 +192,7 @@ var snippetsController = function (app,mongoose,cfg) {
        SnippetsModel.Snippets.find(query,function(err,snippets){
             if(err) res.jsonp([])
             res.charset = 'utf-8';
-            res.type('application/javascript');
+            res.type('text/javascript');
             
             var snippetType = [];
             var resData = {};
