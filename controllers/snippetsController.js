@@ -3,8 +3,9 @@ var _ = require('underscore');
 var snippetsController = function (app,mongoose,cfg) {
     //增加新片断
     app.get(cfg.siteDirectory+'snippet/add', function(req, res, next) {
-        if(!req.session.user){
-            res.redirect('/user/login');
+        if(!req.session||!req.session.user){
+            res.redirect(cfg.siteDirectory+'user/login');
+            return;
         }
         res.render('snippets',{
             title:"Add new snippets",
@@ -17,7 +18,8 @@ var snippetsController = function (app,mongoose,cfg) {
     //编辑片断
     app.get(cfg.siteDirectory+'snippet/:id/edit', function(req, res, next) {
         if(!req.session.user){
-            res.redirect('/user/login');
+            res.redirect(cfg.siteDirectory+'user/login');
+            return;
         }
         SnippetsModel.Snippets.findOne({ _id: req.params.id}, function (err, snippet) {
             if(err) throw err
@@ -48,15 +50,14 @@ var snippetsController = function (app,mongoose,cfg) {
             return;
         }
         var isAjax = req.body._ajax&&req.body._ajax=="true"?true:false;
-
         if(!req.session.user){
             if(isAjax){
                 res.json({status:'fail',message:'need login first'});
-                res.end();
             }else{
-                res.redirect('/user/login');
-                res.end();
+                res.redirect(cfg.siteDirectory+'user/login');
             }
+            res.end();
+            return;
         }
         var tags = req.body.tag+'';
         var _d = new Date();

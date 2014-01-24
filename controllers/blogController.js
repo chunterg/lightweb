@@ -20,7 +20,7 @@ var blogController = function(app, mongoose, cfg) {
     app.get('*.html|*.md', function(req, res, next) {
        if(req.query&&req.query.edit=='true'){
             if(!req.session.user){
-                res.redirect('/user/login');
+                res.redirect(cfg.siteDirectory+'user/login');
             }
             // 文件同时编辑锁定问题
             // console.log(sys)
@@ -48,7 +48,7 @@ var blogController = function(app, mongoose, cfg) {
     });
 
     //blog下预览文件列表
-    app.get(cfg.blogRoot+'*', function(req, res, next) {
+    app.get(cfg.siteDirectory+cfg.blogRoot+'*', function(req, res, next) {
         var str = scan(cfg.root + req.originalUrl.replace(cfg.siteDirectory,''));
         if(str.length>0){
             res.render('fileList',{
@@ -79,7 +79,7 @@ var blogController = function(app, mongoose, cfg) {
                 res.json({status:'fail',message:'need login first'});
                 res.end();
             }else{
-                res.redirect('/user/login');
+                res.redirect(cfg.siteDirectory+'user/login');
                 res.end();
             }
         }

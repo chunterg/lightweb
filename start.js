@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/lightweb');
 //load server config
 var cfg = fs.readFileSync(__dirname + '/config.json', 'utf8');
 cfg = cfg.replace(/\/\*[\w\W]*?\*\//gm, '').replace(/\/\/.*/gi, '')
-cfg = JSON.parse(cfg);
+global.cfg = cfg = JSON.parse(cfg);
 app.configure(function() {
 	app.set('views', __dirname + '/view');
 	app.set('view engine', 'jade');

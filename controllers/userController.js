@@ -3,9 +3,9 @@ var User = require('../models/userModel');
 var crypto = require('crypto');
 var userController = function (app, mongoose, cfg) {
     var User = mongoose.model('User');
-    app.all('/user/login/?', function(req, res, next) {
+    app.all(cfg.siteDirectory+'user/login/?', function(req, res, next) {
         if(req.session.user||req.cookies.user){
-            res.redirect('/');
+            res.redirect(cfg.siteDirectory);
         }
         if(req.body.username&&req.body.password){
             var username = req.body.username;
@@ -21,7 +21,7 @@ var userController = function (app, mongoose, cfg) {
                 } else {
                     if (userInfo) {
                         req.session.user = userInfo.username;
-                        res.redirect('/');
+                        res.redirect(cfg.siteDirectory);
                     } else {
                         res.render('login', {
                             action:'login',
@@ -44,7 +44,7 @@ var userController = function (app, mongoose, cfg) {
         
     });
 
-    app.all('/user/register/?', function(req, res, next) {
+    app.all(cfg.siteDirectory+'user/register/?', function(req, res, next) {
         if(req.body.username&&req.body.password){
             var username = req.body.username;
             var password = req.body.password;
@@ -54,7 +54,7 @@ var userController = function (app, mongoose, cfg) {
             userModel.save(function(err) {
                 if (err) throw err;
                 req.session.user = username;
-                res.redirect('/');
+                res.redirect(cfg.siteDirectory);
             });   
         }else{
             res.render('login', {
@@ -67,11 +67,11 @@ var userController = function (app, mongoose, cfg) {
     });
 
 
-    app.get('/user/logout/?', function(req, res, next) {
+    app.get(cfg.siteDirectory+'user/logout/?', function(req, res, next) {
         if (req.session) {
             req.session=null;
         }
-        res.redirect('/');
+        res.redirect(cfg.siteDirectory);
     });
 }
 

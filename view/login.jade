@@ -6,7 +6,7 @@ block content
 			h2 #{title}
 			-if(error)
 				p #{error}
-			form#form_login(action='/user/login/', style='margin: 0; padding: 3px 15px;', method='post')
+			form#form_login(action=siteUrl+'user/login/', style='margin: 0; padding: 3px 15px;', method='post')
 				fieldset.control-group
 					label.control-label(for='form_username') Username
 					.controls
@@ -26,7 +26,7 @@ block content
 	-else
 		section
 			h2 #{title}
-			form#form_login(action='/user/register/', style='margin: 0; padding: 3px 15px;', method='post')
+			form#form_login(action=siteUrl+'user/register/', style='margin: 0; padding: 3px 15px;', method='post')
 				fieldset.control-group
 					label.control-label(for='form_username') Username
 					.controls

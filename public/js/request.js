@@ -7,7 +7,7 @@
 define(['jquery'], function($){
     return function (url, opts, dtd, type, method) {
         var param = {},
-            domain = 'http://localhost:88';
+            domain = 'http://127.0.0.1/lightweb';
         
         if( !url ){
             return;
